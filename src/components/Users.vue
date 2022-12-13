@@ -1,7 +1,7 @@
 <template>
  <h1>User list</h1>
- <table>
-    <thead>
+ <table class="table table-striped">
+    <thead class="table-dark">
     <th>Email</th>
     <th>First name</th>
     <th>Is enabled </th>
