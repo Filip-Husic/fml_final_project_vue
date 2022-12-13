@@ -3,7 +3,7 @@
   <form id="form" @submit.prevent="processForm" novalidate>
  
     <section id="inputField"><p>
-      <label for="First name">First name:
+      <label for="firstName">First name:
         <input type="text" id="firstName" v-model="user.firstName">
       </label>
     </p>
@@ -43,8 +43,6 @@
       <input type="submit" value="Register user">
     </p>
   </form>
-  <h2>Registered users</h2>
-  <UserTable :key="user.id"></UserTable>
 </template>
 
 <script>
@@ -57,9 +55,12 @@ export default {
   data() {
     return {
       user: {
+        firstName: "",
+        lastName:"",
         username: "",
         email: "",
-        password: ""
+        password: "",
+        isActive: ""
       },
       error: {
         username: "",
@@ -100,9 +101,6 @@ export default {
         console.log("Form submitted");
         console.log(this.user);
         this.addUser(this.user);
-        this.user.username = "";
-        this.user.email = "";
-        this.user.password = "";
       }else {
         console.log("It's error time!")
       }
@@ -118,6 +116,8 @@ export default {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
+          firstName: user.firstName,
+          lastName: user.lastName,
           username: user.username,
           email: user.email,
           password: user.password
@@ -134,7 +134,11 @@ export default {
           .then(answer => {
             console.log(answer);
             alert("User created with id = " + answer.id);
-            this.getUsers();
+            this.user.firstName ="";
+            this.user.lastName ="";
+            this.user.username = "";
+            this.user.email = "";
+            this.user.password = "";
 
           })
           .catch(error => console.log("An error has occurred: " + error));

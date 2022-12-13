@@ -3,7 +3,7 @@ import Posts from "./components/Posts.vue";
 import Users from "./components/Users.vue";
 import TopMenu from "./components/TopMenu.vue";
 import Homepage from "./components/Homepage.vue";
-import Register from "./components/Register.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
   data() {
@@ -11,6 +11,7 @@ export default {
   },
   methods:{},
   components:{
+    Footer,
     Homepage,
     TopMenu,
     Users,
@@ -27,6 +28,9 @@ export default {
   <main>
     <router-view></router-view>
   </main>
+  <footer>
+    <Footer></Footer>
+  </footer>
 </template>
 
 <style scoped>
