@@ -19,7 +19,7 @@
     </tr>
     <tfoot>
     <tr>
-      <td colspan="4">Total users: {{ users.length }}</td>
+      <td colspan="6">Total users: {{ users.length }}</td>
     </tr>
     </tfoot>
   </table>

@@ -6,6 +6,7 @@
       <li><router-link :to="{name:'Posts'}">Posts page</router-link></li>
       <li><router-link :to="{name:'Login'}">Login</router-link></li>
       <li><router-link :to="{name:'Register'}">Register</router-link></li>
+      <li><router-link :to="{name:'About'}">About us</router-link></li>
     </ul>
   </nav>
 </template>
