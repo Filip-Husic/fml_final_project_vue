@@ -3,6 +3,7 @@ import Posts from "./components/Posts.vue";
 import Users from "./components/Users.vue";
 import TopMenu from "./components/TopMenu.vue";
 import Homepage from "./components/Homepage.vue";
+import Register from "./components/Register.vue";
 
 export default {
   data() {
