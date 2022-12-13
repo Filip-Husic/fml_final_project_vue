@@ -1,5 +1,8 @@
 <script>
 import Posts from "./components/Posts.vue";
+import Users from "./components/Users.vue";
+import TopMenu from "./components/TopMenu.vue";
+import Homepage from "./components/Homepage.vue";
 
 export default {
   data() {
@@ -7,6 +10,9 @@ export default {
   },
   methods:{},
   components:{
+    Homepage,
+    TopMenu,
+    Users,
     Posts,
   }
 }
@@ -14,11 +20,11 @@ export default {
 
 <template>
   <header>
-
+   <TopMenu></TopMenu>
   </header>
 
   <main>
-    <Posts></Posts>
+    <router-view></router-view>
   </main>
 </template>
 
