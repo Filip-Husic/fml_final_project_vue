@@ -11,9 +11,9 @@
     </thead>
     <tr v-for="user of users" :key="user.id">
       <td>{{user.email}}</td>
-      <td>{{user.first_name}}</td>
-      <td>{{user.is_enabled}}</td>
-      <td>{{user.last_name}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.enabled}}</td>
+      <td>{{user.lastName}}</td>
       <td>{{user.password}}</td>
       <td>{{user.username}}</td>
     </tr>
@@ -52,5 +52,36 @@ export default {
 </script>
 
 <style scoped>
+h1{
+  text-align: center;
+}
+.table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin: auto;
+  width: 80%;
+  padding: 20px;
+}
+
+.table tr:nth-child(even) {
+  background-color: lightgray;
+}
+.table thead td:nth-child(even){
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.table tbody th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.table thead, tfoot {
+  background-color: black;
+  color: white;
+}
+.table tfoot {
+  text-align: center;
+}
 
 </style>
