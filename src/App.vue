@@ -26,12 +26,11 @@ export default {
   <main>
     <router-view></router-view>
   </main>
-  <footer>
     <Footer></Footer>
-  </footer>
 </template>
 
 <style scoped>
+
 header {
   line-height: 1.5;
 }

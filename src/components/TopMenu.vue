@@ -13,9 +13,6 @@
           <li class="nav-item">
             <router-link class="nav-link active" :to="{name:'Posts'}">Posts page</router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link active" :to="{name:'About'}">About us</router-link>
-          </li>
         </ul>
       </nav>
         <div class="col-md-3 text-end" id="login">
