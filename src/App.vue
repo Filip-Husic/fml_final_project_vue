@@ -1,4 +1,8 @@
 <script>
+function myFunction() {
+
+}
+
 import Posts from "./components/Posts.vue";
 import Users from "./components/Users.vue";
 import TopMenu from "./components/TopMenu.vue";
@@ -20,7 +24,7 @@ export default {
 }
 </script>
 
-<template>
+<template class="dark">
   <TopMenu></TopMenu>
 
   <main>
@@ -39,6 +43,16 @@ export default {
 </template>
 
 <style scoped>
+template{
+  padding: 25px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+}
+.dark-mode {
+  background-color: black;
+  color: white;
+}
 
 header {
   line-height: 1.5;

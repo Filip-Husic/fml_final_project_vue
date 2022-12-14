@@ -4,39 +4,42 @@
   <form id="form" @submit.prevent="processForm">
 
     <section id="inputField"><p>
-      <label for="firstName">First name:
-        <input type="text" id="firstName" v-model="user.firstName" required>
+      <label class="form-label" for="firstName">First name:
+        <input class="form-control" type="text" id="firstName" v-model="user.firstName" required>
       </label>
     </p>
     </section>
 
     <section id="inputField"><p>
-      <label for="Last name">Last name:
-        <input type="text" id="lastName" v-model="user.lastName" required>
+      <label class="form-label" for="Last name">Last name:
+        <input class="form-control" type="text" id="lastName" v-model="user.lastName" required>
       </label>
     </p>
     </section>
 
     <section id="inputField"><p>
-      <label for="username">Username:
-        <input type="text" id="username" v-model="user.username" required>
+      <label class="form-label" for="username">Username:
+        <input class="form-control" type="text" id="username" v-model="user.username" required>
       </label>
     </p>
     </section>
 
     <section id="inputField"><p>
-      <label for="email">Email:
-        <input type="text" id="email" v-model="user.email" required>
+      <label class="form-label" for="email">Email:
+        <input class="form-control" type="text" id="email" v-model="user.email" required>
       </label>
     </p>
       <small id="errorList" v-show="error.email!==''">{{ error.email }}</small>
     </section>
 
     <section id="inputField"><p>
-      <label for="password">Password:
-        <input type="password" id="password" v-model="user.password" required>
+      <label class="form-label" for="password">Password:
+        <input class="form-control" type="password" id="password" v-model="user.password" required>
       </label>
     </p>
+      <div id="passwordHelpBlock" class="form-text">
+        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+      </div>
       <small id="errorList" v-show="error.password!==''">{{ error.password }}</small>
     </section>
 
@@ -165,10 +168,6 @@ export default {
   float: bottom;
   margin-left: 20px;
   color: rgb(255, 0, 0);
-}
-
-#form p {
-  padding: 20px;
 }
 
 #inputField {
