@@ -1,14 +1,29 @@
 <template>
-  <nav class="topMenu">
-    <ul class="topMenu">
-      <li><router-link to="/">Home</router-link></li>
-      <li><router-link :to="{name:'Users'}">Users page</router-link></li>
-      <li><router-link :to="{name:'Posts'}">Posts page</router-link></li>
-      <li><router-link :to="{name:'Login'}">Login</router-link></li>
-      <li><router-link :to="{name:'Register'}">Register</router-link></li>
-      <li><router-link :to="{name:'About'}">About us</router-link></li>
-    </ul>
-  </nav>
+  <div class="container">
+    <header
+        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <nav class="nav nav-pills">
+        <ul class="nav me-auto">
+          <li class="nav-item">
+            <router-link class="nav-link active" to="/">Home</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link active" :to="{name:'Users'}">Users page</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link active" :to="{name:'Posts'}">Posts page</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link active" :to="{name:'About'}">About us</router-link>
+          </li>
+        </ul>
+      </nav>
+        <div class="col-md-3 text-end" id="login">
+          <router-link :to="{name:'Login'}"><button class="btn btn-outline-primary me-2">Login</button></router-link>
+          <router-link :to="{name:'Register'}"><button class="btn btn-primary">Register</button></router-link>
+        </div>
+    </header>
+  </div>
 </template>
 
 <script>
@@ -18,26 +33,5 @@ export default {
 </script>
 
 <style scoped>
-.topMenu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  box-shadow: 0px 3px 5px #000;
-}
-.topMenu li {
-  display: inline;
-}
-.topMenu a {
-  text-decoration: none;
-  color: black;
-  /* color: inherit; */
-  padding: 10px 20px;
-  display: inline-block;
-}
 
-.topMenu a:hover {
-  background-color: red;
-  color: white;
-}
 </style>

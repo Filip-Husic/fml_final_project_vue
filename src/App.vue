@@ -21,9 +21,7 @@ export default {
 </script>
 
 <template>
-  <header>
    <TopMenu></TopMenu>
-  </header>
 
   <main>
     <router-view></router-view>
