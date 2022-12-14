@@ -1,31 +1,32 @@
 <template>
+  <div class="container">
   <h1>Register</h1>
-  <form id="form" @submit.prevent="processForm" novalidate>
- 
+  <form id="form" @submit.prevent="processForm">
+
     <section id="inputField"><p>
       <label for="firstName">First name:
-        <input type="text" id="firstName" v-model="user.firstName">
+        <input type="text" id="firstName" v-model="user.firstName" required>
       </label>
     </p>
-  </section>
+    </section>
 
     <section id="inputField"><p>
       <label for="Last name">Last name:
-        <input type="text" id="lastName" v-model="user.lastName">
+        <input type="text" id="lastName" v-model="user.lastName" required>
       </label>
     </p>
-  </section>
+    </section>
 
     <section id="inputField"><p>
       <label for="username">Username:
-        <input type="text" id="username" v-model="user.username">
+        <input type="text" id="username" v-model="user.username" required>
       </label>
     </p>
-      </section>
+    </section>
 
     <section id="inputField"><p>
       <label for="email">Email:
-        <input type="text" id="email" v-model="user.email">
+        <input type="text" id="email" v-model="user.email" required>
       </label>
     </p>
       <small id="errorList" v-show="error.email!==''">{{ error.email }}</small>
@@ -33,16 +34,20 @@
 
     <section id="inputField"><p>
       <label for="password">Password:
-        <input type="password" id="password" v-model="user.password">
+        <input type="password" id="password" v-model="user.password" required>
       </label>
     </p>
       <small id="errorList" v-show="error.password!==''">{{ error.password }}</small>
     </section>
 
     <p>
-      <input type="submit" value="Register user">
+      <button type="submit">Register user</button>
+      <button>
+        <router-link class="nav-link active" to="/">Back to homepage</router-link>
+      </button>
     </p>
   </form>
+</div>
 </template>
 
 <script>

@@ -24,6 +24,7 @@
       Passionate gamer and loves working on his car.
     </p>
     <p><a href="https://github.com/Filip-Husic/fml_final_project_vue" target="_blank">Frontend part of this project on github</a></p>
+    <p><a href="https://github.com/Filip-Husic/fml_final_project_spring" target="_blank">Backend part of this project on github</a></p>
   </div>
 </template>
 
