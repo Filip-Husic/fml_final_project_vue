@@ -1,26 +1,30 @@
 <template>
-<h1>Post list</h1>
-  <table class="table table-striped">
-    <thead class="table-dark">
-    <th>Title</th>
-    <th>Content</th>
-    <th>Date</th>
-    <th>Posted by</th>
-    </thead>
-    <tbody>
-    <tr v-for="post of posts" :key="post.id">
-      <td>{{post.title}}</td>
-      <td>{{post.content}}</td>
-      <td>{{post.postedDate}}</td>
-      <td>{{post.user.username}}</td>
-    </tr>
-    </tbody>
-    <tfoot>
-    <tr>
-      <td colspan="4">Total posts: {{ posts.length }}</td>
-    </tr>
-    </tfoot>
-  </table>
+  <div class="album py-5 bg-light" >
+    <div class="container" >
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
+        <div class="col" v-for="post of posts" :key="post.id">
+          <div class="card shadow-sm">
+            <img src="https://picsum.photos/200/100" alt="random lorem picsum image">
+
+            <div class="card-body">
+              <h4>{{post.title}}</h4>
+              <p class="card-text">{{
+                  post.content
+                }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">{{ post.postedDate }}</small>
+                <small class="text-muted">Posted by: {{ post.user.username }}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>

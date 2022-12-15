@@ -12,10 +12,11 @@
 export default {
   name: "DarkModeToggle"
 }
-let toggle = document.querySelector("#dark-mode-toggle")
+
 </script>
 
-<style scoped>
+<style>
+
 label {
   width:100px;
   height:50px;

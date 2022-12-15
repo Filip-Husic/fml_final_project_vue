@@ -1,5 +1,4 @@
 <template>
-  <hr>
   <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <p class=""><a href="https://www.hrvatskitelekom.hr/" target="_blank"><img src="src/assets/img/telekom-logo-claim.svg" alt="Telekom - Erleben, was verbindet." loading="lazy"></a>&copy; 2022 Lana Pavić, Matija Bevandić & Filip Husić </p>

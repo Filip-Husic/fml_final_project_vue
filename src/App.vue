@@ -24,7 +24,7 @@ export default {
 }
 </script>
 
-<template class="dark">
+<template>
   <TopMenu></TopMenu>
 
   <main>
