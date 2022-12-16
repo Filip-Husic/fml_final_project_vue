@@ -40,20 +40,19 @@
 
 <template>
   <!-- added class invisible so its invisible initialy -->
-  <button id="myBtn"
+  <button id="goTopBtn"
           ref="scrollTopButton"
           class="invisible"
           @click="scrollToTop"
           role="button"
           aria-label="scroll to top of the page">
-<!--    <font-awesome-icon icon="fa-solid fa-arrow-up" />-->
-    <font-awesome-icon icon="fa-solid fa-bars" />
+    <font-awesome-icon icon="fa-solid fa-arrow-up" />
   </button>
 
 </template>
 
 <style scoped>
-  #myBtn {
+  #goTopBtn {
     /*display: none; !* Hidden by default *!*/
     position: fixed; /* Fixed/sticky position */
     bottom: 20px; /* Place the button at the bottom of the page */
@@ -71,7 +70,7 @@
     transition: 300ms ease;
   }
 
-  #myBtn:hover {
+  #goTopBtn:hover {
     background-color: magenta;
     transition: 300ms ease-out;
   }
