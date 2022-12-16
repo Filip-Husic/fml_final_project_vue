@@ -2,6 +2,26 @@
   export default {
     data() {
       return {}
+    },
+    methods: {
+      button() {
+        let mybutton = document.getElementById("myBtn");
+        window.onscroll = function () {
+          scrollFunction()
+        }
+      },
+      scrollFunction(){
+        if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
+          mybutton.style.display="block";
+        }else {
+          mybutton.style.display = "none";
+        }
+      },
+      topFunction(){
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      }
+
     }
   }
 </script>
@@ -16,14 +36,16 @@
 <!--        </button>-->
 <!--      </a>-->
 
-      <a href="#">
-        <button
-            type="button"
-            class="btn btn-danger btn-floating btn-lg"
-            id="myBtn">
-          ^
-        </button>
-      </a>
+<!--      <a href="#">-->
+<!--        <button-->
+<!--            type="button"-->
+<!--            class="btn btn-danger btn-floating btn-lg"-->
+<!--            id="myBtn">-->
+<!--          ^-->
+<!--        </button>-->
+<!--      </a>-->
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 </template>
 
 <style scoped>
@@ -34,7 +56,7 @@
   /*  right: 20px;*/
   /*}*/
   #myBtn {
-      /*display: none; !* Hidden by default *!*/
+      display: none; /* Hidden by default */
       position: fixed; /* Fixed/sticky position */
       bottom: 20px; /* Place the button at the bottom of the page */
       right: 30px; /* Place the button 30px from the right */
