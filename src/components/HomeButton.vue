@@ -46,7 +46,8 @@
           @click="scrollToTop"
           role="button"
           aria-label="scroll to top of the page">
-    <font-awesome-icon icon="fa-solid fa-arrow-up" />
+<!--    <font-awesome-icon icon="fa-solid fa-arrow-up" />-->
+    <font-awesome-icon icon="fa-solid fa-bars" />
   </button>
 
 </template>
