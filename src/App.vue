@@ -8,6 +8,7 @@ import Users from "./components/Users.vue";
 import TopMenu from "./components/TopMenu.vue";
 import Homepage from "./components/Homepage.vue";
 import Footer from "./components/Footer.vue";
+import HomeButton from "@/components/HomeButton.vue";
 
 export default {
   data() {
@@ -20,6 +21,7 @@ export default {
     TopMenu,
     Users,
     Posts,
+    HomeButton,
   }
 }
 </script>
@@ -28,17 +30,13 @@ export default {
   <TopMenu></TopMenu>
 
   <main>
+
     <router-view></router-view>
-    <a href="#">
-      <button
-          type="button"
-          class="btn btn-danger btn-floating btn-lg"
-          id="btn-back-to-top"
-      >Back to top ^
-      </button>
-    </a>
+
+    <HomeButton></HomeButton>
 
   </main>
+
   <Footer></Footer>
 </template>
 
@@ -72,9 +70,5 @@ header {
   }
 }
 
-#btn-back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
+
 </style>
