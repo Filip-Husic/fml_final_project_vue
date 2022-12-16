@@ -24,6 +24,8 @@ export default {
     HomeButton,
   }
 }
+
+
 </script>
 
 <template>
