@@ -29,14 +29,11 @@ export default {
 </script>
 
 <template>
-  <TopMenu></TopMenu>
-
   <main>
-
-    <router-view></router-view>
-
+    <TopMenu></TopMenu>
     <HomeButton></HomeButton>
 
+    <router-view></router-view>
   </main>
 
   <Footer></Footer>

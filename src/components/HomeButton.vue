@@ -40,8 +40,13 @@
 
 <template>
   <!-- added class invisible so its invisible initialy -->
-  <button id="myBtn" ref="scrollTopButton" class="invisible" @click="scrollToTop">
-    ^
+  <button id="myBtn"
+          ref="scrollTopButton"
+          class="invisible"
+          @click="scrollToTop"
+          role="button"
+          aria-label="scroll to top of the page">
+    <font-awesome-icon icon="fa-solid fa-arrow-up" />
   </button>
 
 </template>

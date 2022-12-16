@@ -20,7 +20,6 @@
           <router-link :to="{name:'Login'}"><button class="btn btn-outline-primary me-2">Login</button></router-link>
           <router-link :to="{name:'Register'}"><button class="btn btn-primary">Register</button></router-link>
         </div>
-
     </header>
   </div>
 </template>
