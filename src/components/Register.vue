@@ -116,7 +116,7 @@ export default {
 
 
     addUser(user) {
-      let urlUser = "http://localhost:8080/api/user";
+      let urlUser = "/api/user";
 
       fetch(urlUser, {
         method: "POST",

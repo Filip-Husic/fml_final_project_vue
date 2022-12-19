@@ -44,9 +44,6 @@ export default {
           <li>
             <router-link :to="{name:'Users'}">Users Page</router-link>
           </li>
-          <li>
-            <router-link :to="{name:'Posts'}">Posts page</router-link>
-          </li>
         </ul>
       </nav>
 <!--      For nor lets comment the toggle switch-->

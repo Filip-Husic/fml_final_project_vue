@@ -1,9 +1,4 @@
 <script>
-function myFunction() {
-
-}
-
-import Posts from "./components/Posts.vue";
 import Users from "./components/Users.vue";
 import TopMenu from "./components/TopMenu.vue";
 import TopMenuArticle from "./components/TopMenuArticle.vue";
@@ -22,7 +17,6 @@ export default {
     TopMenu,
     TopMenuArticle,
     Users,
-    Posts,
     HomeButton,
 
   }
@@ -57,10 +51,6 @@ template{
   font-size: 25px;
   width: 100%;
   margin: auto;
-}
-.dark-mode {
-  background-color: black;
-  color: white;
 }
 
 header {

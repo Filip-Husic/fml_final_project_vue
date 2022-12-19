@@ -39,7 +39,7 @@ export default {
     async getPosts() {
       try {
 
-        let response = await fetch("http://localhost:8080/api/post");
+        let response = await fetch("/api/post");
         this.posts = await response.json();
         console.log(this.posts);
       } catch (error) {

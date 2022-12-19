@@ -36,7 +36,7 @@ export default {
     async getUsers() {
       try {
 
-        let response = await fetch("http://localhost:8080/api/user");
+        let response = await fetch("/api/user");
         this.users = await response.json();
         console.log(this.users);
       } catch (error) {
