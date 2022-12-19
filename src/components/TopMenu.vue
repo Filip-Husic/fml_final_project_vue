@@ -81,4 +81,29 @@ export default {
     background: #f05f40;
     cursor: pointer;
   }
+
+  .btn-outline-primary{
+    border: none;
+    color: lightgrey;
+    text-decoration: none;
+  }
+  .btn-outline-primary:hover{
+    transition: ease 0.7s;
+    background: #f05f40;
+    color: lightgrey;
+    cursor: pointer;
+  }
+
+  .btn-primary{
+    background: #f05f40;
+    border: none;
+    color: lightgrey;
+  }
+
+  .btn-primary:hover{
+    background: lightgrey;
+    border: #f05f40;
+    color: #f05f40;
+    transition: ease 0.7s;
+  }
 </style>
