@@ -1,10 +1,10 @@
 <template>
-  <input type="checkbox" id="darkmode-toggle"/>Toggle dark mode
+  <input type="checkbox" id="darkmode-toggle"/><!--Toggle dark mode-->
   <label for="darkmode-toggle">
   </label>
-  <p class="toggle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi consequuntur, dignissimos enim itaque laudantium
-    magni nemo obcaecati odio officiis, placeat quibusdam quidem quisquam repellendus saepe temporibus veritatis vitae
-    voluptates.</p>
+<!--  <p class="toggle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi consequuntur, dignissimos enim itaque laudantium-->
+<!--    magni nemo obcaecati odio officiis, placeat quibusdam quidem quisquam repellendus saepe temporibus veritatis vitae-->
+<!--    voluptates.</p>-->
 
 </template>
 
