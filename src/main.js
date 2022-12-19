@@ -14,11 +14,14 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faCamera } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
 library.add(faUserSecret)
 library.add(faArrowUp)
 library.add(faBars)
+library.add(faCamera)
+
 
 createApp(App)
     .component('font-awesome-icon', FontAwesomeIcon)

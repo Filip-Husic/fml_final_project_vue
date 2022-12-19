@@ -7,9 +7,10 @@
 <template>
 
   <article>
-    <h1>LOREM IPSUM</h1>
+    <h1>WELCOME TO FML <font-awesome-icon icon="fa-solid fa-camera" id="camera"/></h1>
     <hr>
-    <p>Lorem ipsum i jos nesto teksta ne znam kolko treba, a ne da mi se paliti lorem ipsum generator da ga nadjem, pa samo tipkam tekst...</p>
+    <p>On this page, you can upload your photos that you have taken and want it to share and maybe earn money for your efforts and good eye for a beautiful photo.<br>
+      You can view photos and buy them, you can also become a member of the community and post your pictures, and for that just <router-link :to="{name:'Register'}">Register</router-link> or if you are already registered then just <router-link :to="{name:'Login'}">Login</router-link></p>
     <div class="gumb">FIND OUT MORE</div>
     <div></div>
   </article>
@@ -22,8 +23,15 @@
     color: white;
     font-size: 40px;
   }
+  #camera{
+    color: #f05f40;
+    rotate: 20deg;
+  }
+  article font-awesome-icon{
+    color: #f05f40;
+  }
   article hr {
-    width: 50px;
+    width: 300px;
     margin: 20px auto;
     border-color: #f05f40;
   }
