@@ -12,9 +12,10 @@
 <!--          <button class="button btn btn-primary my-2"><span>Post something </span></button>-->
 <!--        </p>-->
 <!--      </div>-->
-<!--      <Posts></Posts>-->
+
 <!--    </div>-->
 <!--  </section>-->
+        <Posts></Posts>
 </template>
 
 <script>

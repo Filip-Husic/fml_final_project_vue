@@ -2,20 +2,14 @@
  <h1>User list</h1>
  <table class="table table-striped">
     <thead class="table-dark">
-    <th>Email</th>
-    <th>First name</th>
-    <th>Is enabled </th>
-    <th>Last name</th>
-    <th>Password</th>
     <th>Username</th>
+    <th>Email</th>
+    <th>Website</th>
     </thead>
     <tr v-for="user of users" :key="user.id">
-      <td>{{user.email}}</td>
-      <td>{{user.firstName}}</td>
-      <td>{{user.enabled}}</td>
-      <td>{{user.lastName}}</td>
-      <td>{{user.password}}</td>
       <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.website}}</td>
     </tr>
     <tfoot>
     <tr>
@@ -36,7 +30,7 @@ export default {
     async getUsers() {
       try {
 
-        let response = await fetch("/api/user");
+        let response = await fetch("https://jsonplaceholder.typicode.com/users");
         this.users = await response.json();
         console.log(this.users);
       } catch (error) {
