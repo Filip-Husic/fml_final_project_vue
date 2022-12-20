@@ -5,7 +5,7 @@
       <nav class="nav nav-pills">
         <ul class="nav me-auto">
           <li>
-            <router-link :to="{name:'About'}"><button class="btn btn-primary">About us</button></router-link>
+            <router-link :to="{name:'About'}"><button class="btn">About us</button></router-link>
           </li>
         </ul>
       </nav>
@@ -25,4 +25,14 @@ export default {
   color: white;
   font-size: larger;
 }
+.btn { width: 120px;
+    border-radius: 20px;
+    background: #f05f40;
+    color: lightgrey; 
+    box-shadow: 0px 2px 10px black; 
+    padding: 10px;
+    margin: auto;}
+
+
+   
 </style>

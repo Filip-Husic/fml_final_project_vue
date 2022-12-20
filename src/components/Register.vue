@@ -44,8 +44,8 @@
     </section>
 
     <p>
-      <button type="submit">Register user</button>
-      <button>
+      <button class="butreg"><span>Register user </span></button>
+      <button class="buthomepag">
         <router-link class="nav-link active" to="/">Back to homepage</router-link>
       </button>
     </p>
@@ -171,8 +171,31 @@ export default {
 }
 
 #inputField {
-  border: 1px solid black;
-  padding: 20px;
-  width: 500px;
+  
 }
+.butreg{
+  width: 120px;
+  margin-right: auto;
+    border-radius: 10px;
+    border-width: 0px;
+    background: #f05f40;
+    color: lightgrey; 
+    box-shadow: 0px 2px 5px #000000; 
+    padding: 1px;
+    margin: auto;}
+.buthomepag{
+  width: 150px;
+  margin-left: auto;
+    border-radius: 10px;
+    border-width: 0px;
+    background: #f05f40;
+    color: lightgrey; 
+    box-shadow: 0px 2px 5px #000000; 
+    padding: 1px;
+    margin: auto;
+
+}
+
+  
+
 </style>
