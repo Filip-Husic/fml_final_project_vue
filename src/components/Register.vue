@@ -42,8 +42,9 @@
 import Users from "./Users.vue"
 
 
+// noinspection JSUnusedGlobalSymbols
 export default {
-  name: "Registration",
+  name: "Register",
   components: {Users},
   data() {
     return {
@@ -160,10 +161,10 @@ export default {
 .butreg{
   width: 120px;
     border-radius: 10px;
-    border-width: 0px;
+    border-width: 0;
     background: #f05f40;
     color: lightgrey; 
-    box-shadow: 0px 2px 5px #000000; 
+    box-shadow: 0 2px 5px #000000;
     padding: 1px;
     margin: auto;
 }
@@ -175,10 +176,10 @@ export default {
 .buthomepag{
   width: 150px;
     border-radius: 10px;
-    border-width: 0px;
+    border-width: 0;
     background: #f05f40;
     color: lightgrey; 
-    box-shadow: 0px 2px 5px #000000; 
+    box-shadow: 0 2px 5px #000000;
     padding: 1px;
     margin-left: 20px;
 
