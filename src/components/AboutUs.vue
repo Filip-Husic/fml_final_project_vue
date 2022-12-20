@@ -47,14 +47,29 @@
 
     <div class="clear"/>
 
-    <p><a href="https://github.com/Filip-Husic/fml_final_project_vue" target="_blank">Frontend part of this project on github</a></p>
-    <p><a href="https://github.com/Filip-Husic/fml_final_project_spring" target="_blank">Backend part of this project on github</a></p>
+
+    <a href="https://github.com/Filip-Husic/fml_final_project_vue" target="_blank">
+      <button class="gumb">
+        Frontend part of this project on
+        <font-awesome-icon icon="fa-brands fa-github" class="gitHub"/>
+      </button>
+    </a>
+
+    <a href="https://github.com/Filip-Husic/fml_final_project_spring" target="_blank">
+      <button class="gumb">
+        Frontend part of this project on
+        <font-awesome-icon icon="fa-brands fa-github" class="gitHub"/>
+      </button>
+    </a>
+
   </div>
 </template>
 
 <script>
+import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 export default {
-  name: "AboutUs"
+  name: "AboutUs",
+  components: {FontAwesomeIcon}
 }
 </script>
 
@@ -119,5 +134,35 @@ export default {
     font-style: italic;
   }
 
-
+/*  Github fontawesome */
+  .gitHub{
+    color: lightgrey;
+  }
+  a{
+    text-decoration: none;
+    background-color: #f05f40;
+    color: lightgrey;
+  }
+  .gumb{
+    width: 300px;
+    border-radius: 50px;
+    background: #f05f40;
+    padding: 10px;
+    margin: auto;
+    float: left;
+    margin-left: 400px;
+    box-shadow: 0px 2px 10px black; /* Adds shadows around the button*/
+    cursor: pointer;
+    border: none;
+    color: lightgrey;
+  }
+  .gumb:hover{
+    transition: ease .5s;
+    transform: translate(0, -15px);
+  }
+  article .gumb{
+    margin-top: 25px;
+    color: white;
+    font-weight: bold;
+  }
 </style>
