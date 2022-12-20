@@ -2,21 +2,6 @@
   <div class="container">
   <h1>Register</h1>
   <form id="form" @submit.prevent="processForm">
-
-    <section id="inputField"><p>
-      <label class="form-label" for="firstName">First name:
-        <input class="form-control" type="text" id="firstName" v-model="user.firstName" required>
-      </label>
-    </p>
-    </section>
-
-    <section id="inputField"><p>
-      <label class="form-label" for="Last name">Last name:
-        <input class="form-control" type="text" id="lastName" v-model="user.lastName" required>
-      </label>
-    </p>
-    </section>
-
     <section id="inputField"><p>
       <label class="form-label" for="username">Username:
         <input class="form-control" type="text" id="username" v-model="user.username" required>
@@ -63,12 +48,9 @@ export default {
   data() {
     return {
       user: {
-        firstName: "",
-        lastName:"",
         username: "",
         email: "",
         password: "",
-        isActive: ""
       },
       error: {
         username: "",
@@ -81,7 +63,7 @@ export default {
     async getUsers() {
       try {
 
-        let response = await fetch("http://localhost:8080/api/user");
+        let response = await fetch("/api/user");
         this.users = await response.json();
         console.log(this.users);
       } catch (error) {
@@ -116,7 +98,7 @@ export default {
 
 
     addUser(user) {
-      let urlUser = "/api/user";
+      let urlUser = "/api/auth/signup";
 
       fetch(urlUser, {
         method: "POST",
@@ -124,8 +106,6 @@ export default {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          firstName: user.firstName,
-          lastName: user.lastName,
           username: user.username,
           email: user.email,
           password: user.password
@@ -141,9 +121,6 @@ export default {
           })
           .then(answer => {
             console.log(answer);
-            alert("User created with id = " + answer.id);
-            this.user.firstName ="";
-            this.user.lastName ="";
             this.user.username = "";
             this.user.email = "";
             this.user.password = "";
