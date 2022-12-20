@@ -2,12 +2,12 @@ import { createApp } from 'vue'
 import App from './App.vue'
 // import Vue from 'vue';
 
-import router from "./router/routes";
+import {router} from "./router/config";
+import { createPinia } from "pinia";
 import './assets/main.css'
 // import store from './store';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import VeeValidate from 'vee-validate';
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -41,8 +41,10 @@ library.add(faChevronDown)
 library.add(faGithub)
 library.add(faHome, faUser, faUserPlus, faSignInAlt, faSignOutAlt);
 
+const pinia = createPinia();
+const app = createApp(App);
 
-createApp(App)
-    .component('font-awesome-icon', FontAwesomeIcon)
-    .use(router)
-    .mount('#app')
+app.component('font-awesome-icon', FontAwesomeIcon);
+app.use(router);
+app.use(pinia);
+app.mount('#app');

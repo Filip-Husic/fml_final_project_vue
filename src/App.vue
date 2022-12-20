@@ -5,6 +5,7 @@ import TopMenu from "./components/TopMenu.vue";
 import Homepage from "./components/Homepage.vue";
 import Footer from "./components/Footer.vue";
 import HomeButton from "@/components/HomeButton.vue";
+import Register from "@/components/Register.vue";
 
 export default {
   data() {
@@ -17,6 +18,7 @@ export default {
     TopMenu,
     Users,
     HomeButton,
+    Register,
 
   }
 }
