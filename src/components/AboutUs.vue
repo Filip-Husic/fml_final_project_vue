@@ -47,6 +47,7 @@
 
     <div class="clear"/>
 
+    <article>
 
     <a href="https://github.com/Filip-Husic/fml_final_project_vue" target="_blank">
       <button class="gumb">
@@ -61,6 +62,8 @@
         <font-awesome-icon icon="fa-brands fa-github" class="gitHub"/>
       </button>
     </a>
+
+    </article>
 
   </div>
 </template>
@@ -148,9 +151,8 @@ export default {
     border-radius: 50px;
     background: #f05f40;
     padding: 10px;
-    margin: auto;
     float: left;
-    margin-left: 415px;
+    margin-left: 140px;
     box-shadow: 0px 2px 10px black; /* Adds shadows around the button*/
     cursor: pointer;
     border: none;
