@@ -181,7 +181,13 @@ export default {
     color: lightgrey; 
     box-shadow: 0px 2px 5px #000000; 
     padding: 1px;
-    margin: auto;}
+    margin: auto;
+}
+.butreg:hover{
+  background-color: lightgrey;
+  color: #f05f40;
+  transition: 300ms ease-out;
+}
 .buthomepag{
   width: 150px;
     border-radius: 10px;
@@ -193,6 +199,12 @@ export default {
     margin-left: 20px;
 
 }
+.buthomepag:hover{
+  background-color: lightgrey;
+  color: #f05f40;
+  transition: 300ms ease-out;
+}
+
 
   
 

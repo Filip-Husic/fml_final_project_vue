@@ -162,6 +162,7 @@ export default {
     transition: ease .5s;
     transform: translate(0, -15px);
   }
+
   article .gumb{
     margin-top: 25px;
     color: white;
