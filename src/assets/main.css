@@ -8,3 +8,9 @@
     text-align: center;
     font-family: Calibri;
 }
+
+#headerBackground{
+    background-image: url("images/header.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

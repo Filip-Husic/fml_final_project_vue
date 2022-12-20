@@ -9,8 +9,7 @@
   <article>
     <h1>WELCOME TO FML <font-awesome-icon icon="fa-solid fa-camera" id="camera"/></h1>
     <hr>
-    <p>On this page, you can upload your photos that you have taken and want it to share and maybe earn money for your efforts and good eye for a beautiful photo.<br>
-      You can view photos and buy them, you can also become a member of the community and post your pictures, and for that just <router-link :to="{name:'Register'}">Register</router-link> or if you are already registered then just <router-link :to="{name:'Login'}">Login</router-link></p>
+    <p>We are aspiring to create a community where you can freely express yourself, upload your photographic creations and explore others'. Find your inspiration, express your ideas and make a profit along the way. We are excited to see the world through your lens, and for that just <router-link :to="{name:'Register'}">Sign up</router-link> or if you are already registered then just <router-link :to="{name:'Login'}">Sign in</router-link></p>
     <div class="gumb">FIND OUT MORE</div>
     <div class="gumb">Post something</div>
   </article>

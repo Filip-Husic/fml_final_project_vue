@@ -1,41 +1,41 @@
 <template>
   <div class="container">
-  <h1>Register</h1>
-  <form id="form" @submit.prevent="processForm">
-    <section id="inputField"><p>
-      <label class="form-label" for="username">Username:
-        <input class="form-control" type="text" id="username" v-model="user.username" required>
-      </label>
-    </p>
-    </section>
+    <h1>Register</h1>
+    <form id="form" @submit.prevent="processForm">
+      <section id="inputField"><p>
+        <label class="form-label" for="username">Username:
+          <input class="form-control" type="text" id="username" v-model="user.username" required>
+        </label>
+      </p>
+      </section>
 
-    <section id="inputField"><p>
-      <label class="form-label" for="email">Email:
-        <input class="form-control" type="text" id="email" v-model="user.email" required>
-      </label>
-    </p>
-      <small id="errorList" v-show="error.email!==''">{{ error.email }}</small>
-    </section>
+      <section id="inputField"><p>
+        <label class="form-label" for="email">Email:
+          <input class="form-control" type="text" id="email" v-model="user.email" required>
+        </label>
+      </p>
+        <small id="errorList" v-show="error.email!==''">{{ error.email }}</small>
+      </section>
 
-    <section id="inputField"><p>
-      <label class="form-label" for="password">Password:
-        <input class="form-control" type="password" id="password" v-model="user.password" required>
-      </label>
-    </p>
-      <div id="passwordHelpBlock" class="form-text">
-        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-      </div>
-      <small id="errorList" v-show="error.password!==''">{{ error.password }}</small>
-    </section>
+      <section id="inputField"><p>
+        <label class="form-label" for="password">Password:
+          <input class="form-control" type="password" id="password" v-model="user.password" required>
+        </label>
+      </p>
+        <div id="passwordHelpBlock" class="form-text">
+          Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+        </div>
+        <small id="errorList" v-show="error.password!==''">{{ error.password }}</small>
+      </section>
 
-    <p>
-      <button class="butreg"><span>Register user </span></button>
-      <button class="buthomepag">
-        <router-link class="nav-link active" to="/">Back to homepage</router-link>
-      </button>
-    </p>
-  </form>
-</div>
+      <p class="test">
+        <button class="butreg"><span>Register user </span></button>
+        <button class="buthomepag">
+          <router-link class="nav-link active" to="/">Back to homepage</router-link>
+        </button>
+      </p>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -138,6 +138,13 @@ export default {
 </script>
 
 <style scoped>
+.container{
+  background-color: lightgrey;
+  border-radius: 20px;
+  width: 400px;
+  padding: 20px;
+  margin-top: 20px;
+}
 #errorList {
   background-color: rgb(0, 0, 0);
   padding: 2px;
@@ -158,7 +165,13 @@ export default {
     color: lightgrey; 
     box-shadow: 0px 2px 5px #000000; 
     padding: 1px;
-    margin: auto;}
+    margin: auto;
+}
+.butreg:hover{
+  background-color: lightgrey;
+  color: #f05f40;
+  transition: 300ms ease-out;
+}
 .buthomepag{
   width: 150px;
     border-radius: 10px;
@@ -169,6 +182,15 @@ export default {
     padding: 1px;
     margin-left: 20px;
 
+}
+.buthomepag:hover{
+  background-color: lightgrey;
+  color: #f05f40;
+  transition: 300ms ease-out;
+}
+
+.test{
+  margin-top: 20px;
 }
 
   

@@ -1,7 +1,7 @@
 <script>
 import Users from "./components/Users.vue";
 import TopMenu from "./components/TopMenu.vue";
-import TopMenuArticle from "./components/TopMenuArticle.vue";
+
 import Homepage from "./components/Homepage.vue";
 import Footer from "./components/Footer.vue";
 import HomeButton from "@/components/HomeButton.vue";
@@ -15,7 +15,6 @@ export default {
     Footer,
     Homepage,
     TopMenu,
-    TopMenuArticle,
     Users,
     HomeButton,
 
@@ -54,12 +53,6 @@ template{
 
 header {
   line-height: 1.5;
-}
-
-#headerBackground{
-  background-image: url("images/header.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 #header{
   opacity: 0.8;

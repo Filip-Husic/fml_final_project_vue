@@ -20,6 +20,8 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import {
     faHome,
@@ -35,9 +37,9 @@ library.add(faUserSecret)
 library.add(faArrowUp)
 library.add(faBars)
 library.add(faCamera)
+library.add(faChevronDown)
+library.add(faGithub)
 library.add(faHome, faUser, faUserPlus, faSignInAlt, faSignOutAlt);
-
-// Vue.config.productionTip = false;
 
 
 createApp(App)
