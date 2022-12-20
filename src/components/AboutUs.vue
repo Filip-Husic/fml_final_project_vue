@@ -150,7 +150,7 @@ export default {
     padding: 10px;
     margin: auto;
     float: left;
-    margin-left: 400px;
+    margin-left: 415px;
     box-shadow: 0px 2px 10px black; /* Adds shadows around the button*/
     cursor: pointer;
     border: none;
