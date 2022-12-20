@@ -175,7 +175,6 @@ export default {
 }
 .butreg{
   width: 120px;
-  margin-right: auto;
     border-radius: 10px;
     border-width: 0px;
     background: #f05f40;
@@ -185,14 +184,13 @@ export default {
     margin: auto;}
 .buthomepag{
   width: 150px;
-  margin-left: auto;
     border-radius: 10px;
     border-width: 0px;
     background: #f05f40;
     color: lightgrey; 
     box-shadow: 0px 2px 5px #000000; 
     padding: 1px;
-    margin: auto;
+    margin-left: 20px;
 
 }
 
