@@ -30,7 +30,6 @@ export default {
     <div id="header">
       <TopMenu ></TopMenu>
     </div>
-    <TopMenuArticle></TopMenuArticle>
   </div>
 
   <main>
