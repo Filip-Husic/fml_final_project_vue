@@ -1,14 +1,6 @@
 <template>
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">FML final project</h1>
-        <p class="lead text-muted">Welcome to our webpage, here you can post pictures and also buy the ones you
-          like.</p>
-        <p>
-          <button class="button btn btn-primary my-2"><span>Post something </span></button>
-        </p>
-      </div>
       <Posts></Posts>
     </div>
   </section>
