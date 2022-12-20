@@ -39,10 +39,10 @@ export default {
       <nav class="nav nav-pills">
         <ul class="nav me-auto">
           <li>
-            <router-link to="/"><a>Home</a></router-link>
+            <router-link to="/"><button class="topBtn">Home</button></router-link>
           </li>
           <li>
-            <router-link :to="{name:'Users'}">Users Page</router-link>
+            <router-link :to="{name:'Users'}"><button class="topBtn">Users Page</button></router-link>
           </li>
         </ul>
       </nav>
@@ -59,26 +59,24 @@ export default {
 
 
 <style scoped>
-  a{
+/* For Left side of Menu (put new class on button so that left and right would be different*/
+  .topBtn{
     color: lightgrey;
     text-decoration: none;
-  }
-  a:hover{
-    color: lightgrey;
-    text-decoration: none;
-  }
-
-  header ul li{
     display: inline-block;
     padding: 15px;
-  }
+    border: none;
+    background: #888;
 
-  header ul li:hover{
+  }
+  .topBtn:hover {
+    color: lightgrey;
+    text-decoration: none;
     transition: ease 0.7s;
     background: #f05f40;
     cursor: pointer;
   }
-
+/* For right side of Menu*/
   .btn-outline-primary{
     border: none;
     color: lightgrey;
