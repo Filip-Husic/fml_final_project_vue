@@ -22,7 +22,7 @@ export default {
           <li>
             <router-link to="/"><button class="topBtn">Home</button></router-link>
           </li>
-          <li>
+          <li v-if="isAuthenticated">
             <router-link :to="{name:'Users'}"><button class="topBtn">Users Page</button></router-link>
           </li>
           <li>

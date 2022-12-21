@@ -35,22 +35,26 @@ export default defineComponent({
 
 <template>
   <div class="container">
-    <form @submit.prevent="login" v-if="!authStore.isAuthenticated">
-      <fieldset>
-        <p><label for="username">
+    <form id="form" @submit.prevent="login" v-if="!authStore.isAuthenticated">
+      <section id="inputField">
+        <p><label class="form-label" for="username">
           <span>Username </span>
-          <input type="text" id="username" autocomplete="username" v-model="user.username">
+          <input class="form-control" type="text" id="username" autocomplete="username" v-model="user.username">
         </label>
         </p>
-
-        <p><label for="password">
+      </section>
+      <section id="inputField">
+        <p><label class="form-label" for="password">
           <span>Password </span>
-          <input type="password" id="password" autocomplete="current-password" v-model="user.password">
+          <input class="form-control" type="password" id="password" autocomplete="current-password" v-model="user.password">
         </label>
         </p>
+      </section>
 
-        <button type="submit" :disabled="!valid">Login</button>
-      </fieldset>
+        <button class="butreg" type="submit" :disabled="!valid">Login</button>
+      <button class="buthomepag">
+        <router-link class="nav-link active" to="/">Back to homepage</router-link>
+      </button>
     </form>
   </div>
 
@@ -58,5 +62,58 @@ export default defineComponent({
 </template>
 
 <style scoped>
+.container{
+  background-color: lightgrey;
+  border-radius: 20px;
+  width: 400px;
+  padding: 20px;
+  margin-top: 20px;
+}
+#errorList {
+  background-color: rgb(0, 0, 0);
+  padding: 2px;
+  border: 1px solid black;
+  float: bottom;
+  margin-left: 20px;
+  color: rgb(255, 0, 0);
+}
 
+#inputField {
+
+}
+.butreg{
+  width: 120px;
+  border-radius: 10px;
+  border-width: 0;
+  background: #f05f40;
+  color: lightgrey;
+  box-shadow: 0 2px 5px #000000;
+  padding: 1px;
+  margin: auto;
+}
+.butreg:hover{
+  background-color: lightgrey;
+  color: #f05f40;
+  transition: 300ms ease-out;
+}
+.buthomepag{
+  width: 150px;
+  border-radius: 10px;
+  border-width: 0;
+  background: #f05f40;
+  color: lightgrey;
+  box-shadow: 0 2px 5px #000000;
+  padding: 1px;
+  margin-left: 20px;
+
+}
+.buthomepag:hover{
+  background-color: lightgrey;
+  color: #f05f40;
+  transition: 300ms ease-out;
+}
+
+.test{
+  margin-top: 20px;
+}
 </style>

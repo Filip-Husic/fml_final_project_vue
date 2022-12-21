@@ -7,9 +7,10 @@
     <th>Website</th>
     </thead>
     <tr v-for="user of users" :key="user.id">
+      <td>{{user.id}}</td>
       <td>{{user.username}}</td>
       <td>{{user.email}}</td>
-      <td>{{user.website}}</td>
+      <td><router-link :to="{ name: 'userInfo', params: { userId: user.id}}">ℹ️</router-link></td>
     </tr>
     <tfoot>
     <tr>

@@ -1,6 +1,12 @@
 <script>
+  import {mapState} from "pinia";
+  import {useAuthStore} from "@/store/auth";
+
   export default {
     name: "TopMenuArticle",
+    computed: {
+      ...mapState(useAuthStore, ["isAuthenticated"])
+    },
   }
 </script>
 
@@ -9,9 +15,12 @@
   <article>
     <h1>WELCOME TO FML <font-awesome-icon icon="fa-solid fa-camera" id="camera"/></h1>
     <hr>
-    <p>We are aspiring to create a community where you can freely express yourself, upload your photographic creations and explore others'. Find your inspiration, express your ideas and make a profit along the way. We are excited to see the world through your lens, and for that just <router-link :to="{name:'Register'}">Sign up</router-link> or if you are already registered then just <router-link :to="{name:'Login'}">Sign in</router-link></p>
-    <div class="gumb">FIND OUT MORE</div>
-    <div class="gumb">Post something</div>
+    <p>We are aspiring to create a community where you can freely express yourself, upload your photographic creations and explore others'.
+      Find your inspiration, express your ideas and make a profit along the way.
+      We are excited to see the world through your lens, and for that just <router-link :to="{name:'Register'}">Sign up</router-link>
+      or if you are already registered then just <router-link :to="{name:'Login'}">Log in</router-link></p>
+    <router-link  class="gumb" :to="{name:'About'}">FIND OUT MORE</router-link>
+    <div v-if="isAuthenticated" class="gumb">Post something</div>
   </article>
 
 </template>
@@ -40,6 +49,7 @@
     background: #f05f40;
     padding: 10px;
     margin: auto;
+    text-decoration: none;
   }
   .gumb:hover{
     transition: ease .5s;

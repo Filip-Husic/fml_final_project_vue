@@ -5,6 +5,8 @@ import RegisterView from "@/views/RegisterView.vue";
 import AboutUsView from "@/views/AboutUsView.vue";
 import PageNotFoundView from "@/views/PageNotFoundView.vue";
 import LogoutView from "@/views/LogoutView.vue";
+import UserInfoView from "@/views/UserInfoView.vue";
+import UserProfileView from "@/views/UserProfileView.vue";
 
 
 export const routes = [
@@ -54,24 +56,24 @@ export const routes = [
         }
     },
 
-    // {TODO
-    //     name: "userInfo",
-    //     path: "/user/:userId",
-    //     component: UserInfo,
-    //     props: route => ({ userId: Number(route.params.userId)}),
-    //     meta: {
-    //         requiresAuth: true
-    //     }
-    // },
+    {
+        name: "userInfo",
+        path: "/user/:userId",
+        component: UserInfoView,
+        props: route => ({ userId: Number(route.params.userId)}),
+        meta: {
+            requiresAuth: true
+        }
+    },
 
-    // {TODO
-    //     name: "profile",
-    //     path: "/profile",
-    //     component: UserProfile,
-    //     meta: {
-    //         requiresAuth: true
-    //     }
-    // },
+    {
+        name: "profile",
+        path: "/profile",
+        component: UserProfileView,
+        meta: {
+            requiresAuth: true
+        }
+    },
 
 
     {
