@@ -35,6 +35,7 @@ export default defineComponent({
 
 <template>
   <div class="container">
+    <h1>Login</h1>
     <form id="form" @submit.prevent="login" v-if="!authStore.isAuthenticated">
       <section id="inputField">
         <p><label class="form-label" for="username">

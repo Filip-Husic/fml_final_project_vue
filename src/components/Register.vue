@@ -1,141 +1,94 @@
 <template>
   <div class="container">
     <h1>Register</h1>
-    <form id="form" @submit.prevent="processForm">
+    <form id="form" @submit.prevent="register">
       <section id="inputField"><p>
         <label class="form-label" for="username">Username:
-          <input class="form-control" type="text" id="username" v-model="user.username" required>
+          <input class="form-control" type="text" id="username" autocomplete="username" v-model="registrationData.username" required>
         </label>
       </p>
       </section>
 
       <section id="inputField"><p>
         <label class="form-label" for="email">Email:
-          <input class="form-control" type="text" id="email" v-model="user.email" required>
+          <input class="form-control" type="text" id="email" autocomplete="username" v-model="registrationData.email" required>
         </label>
       </p>
-        <small id="errorList" v-show="error.email!==''">{{ error.email }}</small>
       </section>
 
       <section id="inputField"><p>
-        <label class="form-label" for="password">Password:
-          <input class="form-control" type="password" id="password" v-model="user.password" required>
+        <label class="form-label" for="password1">Password:
+          <input class="form-control" type="password" id="password1" autocomplete="new-password" v-model="registrationData.password1" required>
         </label>
       </p>
         <div id="passwordHelpBlock" class="form-text">
           Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
         </div>
-        <small id="errorList" v-show="error.password!==''">{{ error.password }}</small>
+      </section>
+
+      <section id="inputField"><p>
+        <label class="form-label" for="password2">Repeated password:
+          <input class="form-control" type="password" autocomplete="new-password" v-model="registrationData.password2" required>
+        </label>
+      </p>
       </section>
 
       <p class="test">
-        <button class="butreg"><span>Register user </span></button>
+        <button class="butreg" type="submit" :disabled="!valid">Register</button>
         <button class="buthomepag">
           <router-link class="nav-link active" to="/">Back to homepage</router-link>
         </button>
       </p>
     </form>
+    <ErrorMessage v-if="error?.message" :error="error"/>
   </div>
 </template>
 
 <script>
-import Users from "./Users.vue"
+import { defineComponent } from "vue";
+import { mapStores } from "pinia";
+import { useAuthStore } from "@/store/auth";
+import ErrorMessage from "@/components/ErrorMessage.vue";
 
-
-// noinspection JSUnusedGlobalSymbols
-export default {
-  name: "Register",
-  components: {Users},
+export default defineComponent({
+  name: "RegistrationForm",
+  components: { ErrorMessage },
   data() {
     return {
-      user: {
-        username: "",
-        email: "",
-        password: "",
+      registrationData: {
+        username: '',
+        email: '',
+        password1: '',
+        password2: ''
       },
-      error: {
-        username: "",
-        email: "",
-        password: "",
-      }
+      response: null,
+      error: null
     }
   },
+  computed: {
+    ...mapStores(useAuthStore),
+    valid() {
+      const usernameValid = this.registrationData.username.length > 0;
+      const emailValid = this.registrationData.email.length > 3;
+      const passwordValid = this.registrationData.password1.length > 3
+      const passwordRepeatValid = this.registrationData.password1 === this.registrationData.password2
+      return usernameValid && emailValid && passwordValid && passwordRepeatValid;
+    },
+  },
   methods: {
-    async getUsers() {
-      try {
-
-        let response = await fetch("/api/user");
-        this.users = await response.json();
-        console.log(this.users);
-      } catch (error) {
-        console.log("Error = ", error);
-      }
-    },
-    processForm() {
-      this.error.username = "";
-      this.error.email = "";
-      this.error.password = "";
-      let errors = false;
-      if (!this.user.username) {
-        this.error.username = ("Username field is required!");
-        errors = true;
-      }
-      if (!this.user.email) {
-        this.error.email = ("Email field is required!");
-        errors = true;
-      }
-      if (!this.user.password) {
-        this.error.password = ("Password field is required!");
-        errors = true;
-      }
-      if (!errors) {
-        console.log("Form submitted");
-        console.log(this.user);
-        this.addUser(this.user);
-      }else {
-        console.log("It's error time!")
-      }
-    },
-
-
-    addUser(user) {
-      let urlUser = "/api/auth/signup";
-
-      fetch(urlUser, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          username: user.username,
-          email: user.email,
-          password: user.password
-        })
-      })
-          .then(response => {
-            if (!response.ok) {
-              return Promise.reject("Page doesn't exist!");
-            } else {
-              return response.json();
-            }
-
+    register() {
+      this.error = null;
+      this.authStore.register(this.registrationData)
+          .then(data => {
+            this.response = data;
+            this.$router.push({ name: 'home' })
           })
-          .then(answer => {
-            console.log(answer);
-            this.user.username = "";
-            this.user.email = "";
-            this.user.password = "";
-
+          .catch(error => {
+            this.error = error.message
           })
-          .catch(error => console.log("An error has occurred: " + error));
-    },
-    created() {
-      this.getUsers();
     }
   }
-
-}
-
+});
 </script>
 
 <style scoped>
