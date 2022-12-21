@@ -1,4 +1,4 @@
-import {defineStore} from "pinia";
+import { defineStore } from "pinia";
 
 const LOCAL_STORAGE_KEY_NAME = "lastLogin"
 
@@ -48,18 +48,6 @@ export const useAuthStore = defineStore("auth", {
 
             await handleResponse(response, this);
         },
-        async addPost(post) {
-            const response = await fetch('/api/post/' + this.user.id, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(post)
-            });
-            console.log("post added")
-
-            await handleResponse(response, this);
-        },
         async login(user) {
             const response = await fetch('/api/auth/login', {
                 method: 'POST',
@@ -76,6 +64,6 @@ export const useAuthStore = defineStore("auth", {
             })
             this.isAuthenticated = false;
             persistState(this.isAuthenticated);
-        }
+        },
     }
 })

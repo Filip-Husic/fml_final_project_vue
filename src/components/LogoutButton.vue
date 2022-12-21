@@ -18,7 +18,7 @@ export default defineComponent({
 
 <template>
   <p>Are you sure that you want to logout?</p>
-  <button class="btn btn-sm btn-outline-primary" @click="logout" v-if="authStore.isAuthenticated">Logout</button>
+  <button @click="logout" v-if="authStore.isAuthenticated">Logout</button>
 </template>
 <style scoped>
 

@@ -58,7 +58,7 @@
 
     <a href="https://github.com/Filip-Husic/fml_final_project_spring" target="_blank">
       <button class="gumb">
-        Backend part of this project on
+        Frontend part of this project on
         <font-awesome-icon icon="fa-brands fa-github" class="gitHub"/>
       </button>
     </a>

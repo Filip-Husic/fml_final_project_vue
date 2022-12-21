@@ -169,7 +169,6 @@ h1 {
   background-color: #f05f40;
   color: black;
   border-color: black;
-  /*transition: 500ms ease;*/
 }
 .btClose:active{
   box-shadow: none;

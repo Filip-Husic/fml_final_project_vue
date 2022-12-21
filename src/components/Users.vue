@@ -2,10 +2,9 @@
  <h1>User list</h1>
  <table class="table table-striped">
     <thead class="table-dark">
-    <th>User ID</th>
     <th>Username</th>
     <th>Email</th>
-    <th>More info</th>
+    <th>Website</th>
     </thead>
     <tr v-for="user of users" :key="user.id">
       <td>{{user.id}}</td>
@@ -25,26 +24,16 @@ export default {
   name: "Users",
   data(){
     return{
-      users: [],
-      sqlUsers: [],
+      users: []
     };
   },
   methods: {
     async getUsers() {
       try {
 
-
         let response = await fetch("https://jsonplaceholder.typicode.com/users");
         this.users = await response.json();
-
-        // let response1 = await fetch("/api/user");
-        // this.sqlUsers = await response1.json();
-        //
-        // for (let user of sql) {
-        //
-        // }
-        // console.log(this.users);
-        // console.log(this.sqlUsers)
+        console.log(this.users);
       } catch (error) {
         console.log("Error = ", error);
       }
