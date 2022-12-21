@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1>Register</h1>
-    <form id="form" @submit.prevent="register">
+    <form id="form" @submit.prevent="register" v-if="!response">
       <section id="inputField"><p>
         <label class="form-label" for="username">Username:
           <input class="form-control" type="text" id="username" autocomplete="username" v-model="registrationData.username" required>
@@ -59,7 +59,8 @@ export default defineComponent({
         username: '',
         email: '',
         password1: '',
-        password2: ''
+        password2: '',
+        password: ''
       },
       response: null,
       error: null
@@ -72,6 +73,9 @@ export default defineComponent({
       const emailValid = this.registrationData.email.length > 3;
       const passwordValid = this.registrationData.password1.length > 3
       const passwordRepeatValid = this.registrationData.password1 === this.registrationData.password2
+      if (passwordRepeatValid){
+        this.registrationData.password = this.registrationData.password1;
+      }
       return usernameValid && emailValid && passwordValid && passwordRepeatValid;
     },
   },
