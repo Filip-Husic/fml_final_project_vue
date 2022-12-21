@@ -31,11 +31,9 @@
 </template>
 
 <script>
-import SingleImage from "@/components/SingleImage.vue";
 
 export default {
   name: "Posts",
-  components: {SingleImage},
   data() {
     let images=document.querySelectorAll(".card img");
     for (let image of images){
@@ -94,13 +92,6 @@ export default {
 h1 {
   text-align: center;
 }
-.table {
-  border: 1px solid black;
-  border-collapse: collapse;
-  margin: auto;
-  width: 80%;
-  padding: 20px;
-}
 
 .table tr:nth-child(even) {
   background-color: lightgray;
@@ -138,7 +129,7 @@ h1 {
   position: relative;
   background-color: white;
   padding: 20px;
-  width: 1024px;
+  width: 75%;
 }
 .btClose{
   position: absolute;

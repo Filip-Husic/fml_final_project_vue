@@ -21,7 +21,7 @@
     </section>
 
     <p class="test">
-      <button class="butreg" type="submit" :disabled="!valid">Submit</button>
+      <button class="butreg" type="submit">Submit</button>
       <button class="buthomepag">
         <router-link class="nav-link active" to="/">Back to homepage</router-link>
       </button>
@@ -35,6 +35,7 @@ import {defineComponent} from "vue";
 import {mapStores} from "pinia";
 import {useAuthStore} from "@/store/auth";
 import ErrorMessage from "@/components/ErrorMessage.vue";
+import {image, integer} from "vee-validate/dist/rules.esm";
 
 export default defineComponent ({
   name: "NewPost",
@@ -43,8 +44,8 @@ export default defineComponent ({
     return {
       postData: {
         title: '',
-        price: '',
-        image: null
+        price: integer,
+        image: image
       },
       response: null,
       error: null
@@ -52,39 +53,27 @@ export default defineComponent ({
   },
   computed: {
     ...mapStores(useAuthStore),
-    valid() {
-      const titleValid = this.postData.title.length > 0;
-      const priceValid = this.postData.price.length >= 0;
-      const imageValid = this.postData.image !== null;
-
-      return titleValid && priceValid && imageValid;
-    },
+    // valid() {
+    //   const titleValid = this.postData.title.length > 0;
+    //   const priceValid = this.postData.price >= 0;
+    //   const imageValid = this.postData.image !== null;
+    //
+    //   return titleValid && priceValid && imageValid;
+    // },
   },
   methods: {
-    // addPost() {
-    //   this.error = null;
-    //   this.authStore.addPost(this.postData)
-    //       .then(data => {
-    //         this.response = data;
-    //         this.$router.push({ name: 'Home' })
-    //       })
-    //       .catch(error => {
-    //         this.error = error.message
-    //       })
-    // }
-    /*
-    async register(user) {
-            const response = await fetch('/api/auth/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(user)
-            });
-
-            await handleResponse(response, this);
-        }
-     */
+    addPost() {
+      this.error = null;
+      this.authStore.addPost(this.postData)
+          .then(data => {
+            this.response = data;
+            this.$router.push({ name: 'Home' })
+            alert("You've added a new post!")
+          })
+          .catch(error => {
+            this.error = error.message
+          })
+    }
   }
 })
 </script>
