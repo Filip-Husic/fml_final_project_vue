@@ -1,17 +1,16 @@
 <template>
-  <div class="album py-5 bg-light" >
-    <div class="container" >
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col" v-for="post of posts">
           <div class="card shadow-sm">
-            <img src={{post.thumbnailUrl}} alt="random jsonplaceholder image">
-
+            <img src={{post.thumbnailUrl}} alt="random jsonplaceholder image" v-if="expanded" :style="{ width: '100%', height: '100%' }">
             <div class="card-body">
               <h4>{{post.title}}</h4>
               <p>{{post.url}}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" @click="expanded = true">View</button>
                   <button type="button" class="btn btn-sm btn-outline-primary">Buy</button>
                 </div>
                 <small class="text-muted">Post id: {{ post.id }}</small>
@@ -25,12 +24,12 @@
 </template>
 
 <script>
-
 export default {
   name: "Posts",
-  data(){
-    return{
-      posts: []
+  data() {
+    return {
+      posts: [],
+      expanded: false
     };
   },
   methods: {
@@ -44,7 +43,6 @@ export default {
       } catch (error) {
         console.log("Error = ", error);
       }
-
     }
   },
   created() {
@@ -54,7 +52,7 @@ export default {
 </script>
 
 <style scoped>
-h1{
+h1 {
   text-align: center;
 }
 .table {
