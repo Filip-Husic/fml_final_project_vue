@@ -14,7 +14,6 @@ export default {
 
 
 <template>
-  <div class="container">
     <header
         class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
       <nav class="nav nav-pills">
@@ -52,7 +51,6 @@ export default {
           </ul>
         </nav>
     </header>
-  </div>
 
 </template>
 
@@ -100,4 +98,28 @@ export default {
     color: #f05f40;
     transition: ease 0.7s;
   }
+
+
+header{
+  opacity: 0.8;
+  background: #888;
+  color: #bbb;
+  line-height: 1.5;
+}
+
+
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  header {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+}
 </style>

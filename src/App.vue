@@ -22,61 +22,17 @@ export default {
 
   }
 }
-
-
 </script>
 
 <template>
-  <div id="headerBackground">
-    <div id="header">
-      <TopMenu ></TopMenu>
-    </div>
-  </div>
-
+  <TopMenu></TopMenu>
   <main>
-
     <HomeButton></HomeButton>
-
     <router-view></router-view>
   </main>
-
   <Footer></Footer>
 </template>
 
 <style scoped>
-template{
-  padding: 25px;
-  background-color: white;
-  color: black;
-  font-size: 25px;
-  width: 100%;
-  margin: auto;
-}
-
-header {
-  line-height: 1.5;
-}
-#header{
-  opacity: 0.8;
-  background: #888;
-  color: #bbb;
-}
-
-
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  header {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-
 
 </style>

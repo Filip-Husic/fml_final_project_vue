@@ -17,10 +17,14 @@
     <hr>
     <p>We are aspiring to create a community where you can freely express yourself, upload your photographic creations and explore others'.
       Find your inspiration, express your ideas and make a profit along the way.
-      We are excited to see the world through your lens, and for that just <router-link :to="{name:'Register'}">Sign up</router-link>
-      or if you are already registered then just <router-link :to="{name:'Login'}">Log in</router-link></p>
-    <router-link  class="gumb" :to="{name:'About'}">FIND OUT MORE</router-link>
-    <div v-if="isAuthenticated" class="gumb">Post something</div>
+      We are excited to see the world through your lens.
+    </p>
+    <router-link :to="{name:'About'}">
+      <button v-if="isAuthenticated" class="gumb">FIND OUT MORE</button>
+    </router-link>
+    <router-link :to="{name:'NewPost'}">
+      <button v-if="isAuthenticated" class="gumb">POST SOMETHING</button>
+    </router-link>
   </article>
 
 </template>

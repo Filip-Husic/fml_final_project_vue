@@ -7,6 +7,7 @@ import PageNotFoundView from "@/views/PageNotFoundView.vue";
 import LogoutView from "@/views/LogoutView.vue";
 import UserInfoView from "@/views/UserInfoView.vue";
 import UserProfileView from "@/views/UserProfileView.vue";
+import NewPostView from "@/views/NewPostView.vue";
 
 
 export const routes = [
@@ -42,6 +43,15 @@ export const routes = [
         name: "Logout",
         path: "/logout",
         component: LogoutView,
+        meta: {
+            requiresAuth: true
+        }
+    },
+
+    {
+        name: "NewPost",
+        path: "/newPost",
+        component: NewPostView,
         meta: {
             requiresAuth: true
         }
