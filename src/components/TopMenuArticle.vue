@@ -54,6 +54,8 @@
     padding: 10px;
     margin: auto;
     text-decoration: none;
+    border: none;
+    margin: 5px;
   }
   .gumb:hover{
     transition: ease .5s;
