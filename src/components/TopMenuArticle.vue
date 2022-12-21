@@ -20,7 +20,7 @@
       We are excited to see the world through your lens.
     </p>
     <router-link :to="{name:'About'}">
-      <button v-if="isAuthenticated" class="gumb">FIND OUT MORE</button>
+      <button class="gumb">FIND OUT MORE</button>
     </router-link>
     <router-link :to="{name:'NewPost'}">
       <button v-if="isAuthenticated" class="gumb">POST SOMETHING</button>

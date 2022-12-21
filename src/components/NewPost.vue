@@ -8,6 +8,12 @@
     </p>
     </section>
     <section id="inputField"><p>
+      <label class="form-label" for="price">Price in euros:
+        <input class="form-control" type="number" id="price" autocomplete="price" v-model="postData.price" required>
+      </label>
+    </p>
+    </section>
+    <section id="inputField"><p>
       <label class="form-label" for="image">Attach image:
         <input class="form-control" type="file" id="image" required>
       </label>
@@ -20,14 +26,19 @@
         <router-link class="nav-link active" to="/">Back to homepage</router-link>
       </button>
     </p>
+    <ErrorMessage v-if="error?.message" :error="error"/>
   </form>
 </template>
 
 <script>
 import {defineComponent} from "vue";
+import {mapStores} from "pinia";
+import {useAuthStore} from "@/store/auth";
+import ErrorMessage from "@/components/ErrorMessage.vue";
 
 export default defineComponent ({
   name: "NewPost",
+  components: {ErrorMessage},
   data() {
     return {
       postData: {
@@ -39,6 +50,42 @@ export default defineComponent ({
       error: null
     }
   },
+  computed: {
+    ...mapStores(useAuthStore),
+    valid() {
+      const titleValid = this.postData.title.length > 0;
+      const priceValid = this.postData.price.length >= 0;
+      const imageValid = this.postData.image !== null;
+
+      return titleValid && priceValid && imageValid;
+    },
+  },
+  methods: {
+    // addPost() {
+    //   this.error = null;
+    //   this.authStore.addPost(this.postData)
+    //       .then(data => {
+    //         this.response = data;
+    //         this.$router.push({ name: 'Home' })
+    //       })
+    //       .catch(error => {
+    //         this.error = error.message
+    //       })
+    // }
+    /*
+    async register(user) {
+            const response = await fetch('/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            });
+
+            await handleResponse(response, this);
+        }
+     */
+  }
 })
 </script>
 
