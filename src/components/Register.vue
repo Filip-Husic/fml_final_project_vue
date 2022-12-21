@@ -11,7 +11,7 @@
 
       <section id="inputField"><p>
         <label class="form-label" for="email">Email:
-          <input class="form-control" type="text" id="email" autocomplete="username" v-model="registrationData.email" required>
+          <input class="form-control" type="text" id="email" autocomplete="email" v-model="registrationData.email" required>
         </label>
       </p>
       </section>
@@ -85,7 +85,7 @@ export default defineComponent({
       this.authStore.register(this.registrationData)
           .then(data => {
             this.response = data;
-            this.$router.push({ name: 'home' })
+            this.$router.push({ name: 'Home' })
           })
           .catch(error => {
             this.error = error.message
