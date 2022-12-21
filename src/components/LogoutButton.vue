@@ -7,7 +7,7 @@ export default defineComponent({
   methods: {
     logout() {
       this.authStore.logout()
-          .then(() => this.$router.push({ name: 'home' }))
+          .then(() => this.$router.push({ name: 'Home' }))
     },
   },
   computed: {
