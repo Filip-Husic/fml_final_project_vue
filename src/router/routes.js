@@ -8,6 +8,7 @@ import LogoutView from "@/views/LogoutView.vue";
 import UserInfoView from "@/views/UserInfoView.vue";
 import UserProfileView from "@/views/UserProfileView.vue";
 import NewPostView from "@/views/NewPostView.vue";
+import CheckoutView from "@/views/CheckoutView.vue";
 
 
 export const routes = [
@@ -18,6 +19,14 @@ export const routes = [
         component: HomepageView,
         meta: {
             requiresAuth: false
+        }
+    },
+    {
+        name: "Checkout",
+        path: "/checkout",
+        component: CheckoutView,
+        meta: {
+            requiresAuth: true
         }
     },
 

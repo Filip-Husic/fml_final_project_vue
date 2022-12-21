@@ -11,9 +11,10 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" @click="showImg()">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-primary">Buy</button>
+                  <router-link :to="{name:'Checkout'}" v-if="isAuthenticated"><button type="button" class="btn btn-sm btn-outline-primary">Buy</button></router-link>
                 </div>
                 <small class="text-muted">Post id: {{ post.id }}</small>
+                <small class="text-muted">Author placeholder</small>
               </div>
             </div>
           </div>
@@ -36,6 +37,9 @@
 import SingleImage from "@/components/SingleImage.vue";
 
 
+import {mapState} from "pinia";
+import {useAuthStore} from "@/store/auth";
+
 export default {
   name: "Posts",
   components: {SingleImage},
@@ -45,6 +49,9 @@ export default {
       posts: [],
       expanded: false
     };
+  },
+  computed: {
+    ...mapState(useAuthStore, ["isAuthenticated"])
   },
   methods: {
     async getPosts() {
@@ -91,13 +98,6 @@ export default {
 h1 {
   text-align: center;
 }
-.table {
-  border: 1px solid black;
-  border-collapse: collapse;
-  margin: auto;
-  width: 80%;
-  padding: 20px;
-}
 
 .table tr:nth-child(even) {
   background-color: lightgray;
@@ -143,9 +143,7 @@ h1 {
 .modal img {
   vertical-align: top;
 }
-.specialWord {
-  background-color: cyan;
-}
+
 .btClose{
   position: absolute;
   top: -20px;

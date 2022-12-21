@@ -15,7 +15,7 @@
     </section>
     <section id="inputField"><p>
       <label class="form-label" for="image">Attach image:
-        <input class="form-control" type="file" id="image" required>
+        <input class="form-control" type="file" id="image" @change="uploadFile" ref="file" required>
       </label>
     </p>
     </section>
@@ -35,6 +35,8 @@ import {defineComponent} from "vue";
 import {mapStores} from "pinia";
 import {useAuthStore} from "@/store/auth";
 import ErrorMessage from "@/components/ErrorMessage.vue";
+import {integer} from "vee-validate/dist/rules.esm";
+
 
 export default defineComponent ({
   name: "NewPost",
@@ -43,8 +45,8 @@ export default defineComponent ({
     return {
       postData: {
         title: '',
-        price: '',
-        image: null
+        price: integer,
+        images: null
       },
       response: null,
       error: null
@@ -54,57 +56,45 @@ export default defineComponent ({
     ...mapStores(useAuthStore),
     valid() {
       const titleValid = this.postData.title.length > 0;
-      const priceValid = this.postData.price.length >= 0;
+      const priceValid = this.postData.price >= 0;
       const imageValid = this.postData.image !== null;
 
       return titleValid && priceValid && imageValid;
     },
   },
   methods: {
-    // addPost() {
-    //   this.error = null;
-    //   this.authStore.addPost(this.postData)
-    //       .then(data => {
-    //         this.response = data;
-    //         this.$router.push({ name: 'Home' })
-    //       })
-    //       .catch(error => {
-    //         this.error = error.message
-    //       })
-    // }
-    /*
-    async register(user) {
-            const response = await fetch('/api/auth/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(user)
-            });
-
-            await handleResponse(response, this);
-        }
-     */
+    uploadFile() {
+    //   this.images = this.$refs.file.files[0];
+    },
+    addPost() {
+    //   const formData = new FormData();
+    //   formData.append('file', this.title);
+    //   formData.append('file', this.price);
+    //   formData.append('file', this.images);
+    //
+    //   const headers = { 'Content-Type': 'multipart/form-data' };
+    //
+    //   axios.post('api/post' + this.user.id, formData, { headers }).then((res) => {
+    //     res.data.files; // binary representation of the file
+    //     res.status; // HTTP status
+    //     console.log("file uploaded")
+    //   });
+      // this.error = null;
+      // this.authStore.addPost(this.postData)
+      //     .then(data => {
+      //       this.response = data;
+      //       this.$router.push({ name: 'Home' })
+      //       alert("You've added a new post!")
+      //     })
+      //     .catch(error => {
+      //       this.error = error.message
+      //     })
+    }
   }
 })
 </script>
 
 <style scoped>
-.container{
-  background-color: lightgrey;
-  border-radius: 20px;
-  width: 400px;
-  padding: 20px;
-  margin-top: 20px;
-}
-#errorList {
-  background-color: rgb(0, 0, 0);
-  padding: 2px;
-  border: 1px solid black;
-  float: bottom;
-  margin-left: 20px;
-  color: rgb(255, 0, 0);
-}
 
 #inputField {
 
