@@ -25,7 +25,11 @@ export default {
 </script>
 
 <template>
-  <TopMenu></TopMenu>
+  <div id="headerBackground">
+    <div id="header">
+      <TopMenu></TopMenu>
+    </div>
+  </div>
   <main>
     <HomeButton></HomeButton>
     <router-view></router-view>
@@ -34,5 +38,8 @@ export default {
 </template>
 
 <style scoped>
-
+  #header{
+    background: #888;
+    opacity: 0.8;
+  }
 </style>
