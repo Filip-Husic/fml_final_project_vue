@@ -21,5 +21,6 @@ export default {
 
 #headerBackground{
   padding-top: 1px;
+  padding-bottom: 250px;
 }
 </style>
