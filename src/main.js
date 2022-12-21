@@ -22,6 +22,8 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 import {
     faHome,
@@ -39,6 +41,8 @@ library.add(faBars)
 library.add(faCamera)
 library.add(faChevronDown)
 library.add(faGithub)
+library.add(faChevronLeft)
+library.add(faChevronRight)
 library.add(faHome, faUser, faUserPlus, faSignInAlt, faSignOutAlt);
 
 const pinia = createPinia();
