@@ -17,15 +17,17 @@
               </div>
             </div>
           </div>
-              <section v-if="modalPicId === post.id" class="modal">
-              <section>
-                <img :src="post.path" alt="bigger image">
-                <p id="caption">{{ post.title }}</p>
-<!--                <font-awesome-icon icon="fa-solid fa-chevron-left" class="fa-chevron-left" @click="previousPost()"/>-->
-<!--                <font-awesome-icon icon="fa-solid fa-chevron-right" class="fa-chevron-right" @click="nextPost()"/>-->
-                <span class="btClose" @click="modalPicId=null">X</span>
-              </section>
+
+            <section v-if="modalPicId === post.id" class="modal">
+                <section @click="modalPicId=null">
+                  <img :src="post.path" alt="bigger image" >
+                  <p id="caption">{{ post.title }}</p>
+  <!--                <font-awesome-icon icon="fa-solid fa-chevron-left" class="fa-chevron-left" @click="previousPost()"/>-->
+  <!--                <font-awesome-icon icon="fa-solid fa-chevron-right" class="fa-chevron-right" @click="nextPost()"/>-->
+                  <span class="btClose" @click="modalPicId=null">X</span>
+                </section>
             </section>
+
         </div>
       </div>
     </div>
@@ -108,6 +110,8 @@ h1 {
 .table tfoot {
   text-align: center;
 }
+
+
 .modal {
 
   position: fixed;
@@ -126,12 +130,14 @@ h1 {
 .modal section {
   position: relative;
   background-color: white;
-  /* width: 1024px;
-  height: 768px; */
+  /*width: 300px;*/
+  /*height: 300px;*/
   padding: 20px;
 }
 .modal img{
   vertical-align: top;
+  width: 850px;
+  height: 850px;
 }
 
 .btClose{
