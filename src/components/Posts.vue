@@ -4,7 +4,7 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col" v-for="post of posts">
           <div class="card shadow-sm">
-            <img :src="post.path" alt="picture thumbnail">
+            <img :src="post.path" alt="picture thumbnail" @click="modalPicId=post.id">
             <div class="card-body">
               <h4>{{post.title}}</h4>
               <div class="d-flex justify-content-between align-items-center">
@@ -17,7 +17,7 @@
               </div>
             </div>
           </div>
-              <section v-if="modalPicId === post.id" class="">
+              <section v-if="modalPicId === post.id" class="modal">
               <section>
                 <img :src="post.path" alt="bigger image">
                 <p id="caption">{{ post.title }}</p>
@@ -107,6 +107,28 @@ h1 {
 }
 .table tfoot {
   text-align: center;
+}
+.modal {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* width: 100%;
+  height: 100%; */
+  width: 100vw; /* vw - viewport width */
+  height: 100vh; /* vh - viewport height */
+  background-color: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*visibility: hidden;*/
+}
+.modal section {
+  position: relative;
+  background-color: white;
+  /* width: 1024px;
+  height: 768px; */
+  padding: 20px;
 }
 .modal img{
   vertical-align: top;
