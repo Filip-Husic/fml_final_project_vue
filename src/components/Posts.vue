@@ -1,3 +1,4 @@
+<!--suppress CssUnusedSymbol -->
 <template>
   <div class="album py-5 bg-light">
     <div class="container">
@@ -6,11 +7,14 @@
           <div class="card shadow-sm">
             <img :src="post.path" alt="picture thumbnail" @click="modalPicId=post.id">
             <div class="card-body">
-              <h4>{{post.title}}</h4>
+              <h4>{{ post.title }}</h4>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary mx-1" @click="modalPicId=post.id">View</button>
-                  <router-link :to="{name:'Checkout'}" v-if="isAuthenticated"><button type="button" class="btn btn-sm btn-outline-primary">Buy</button></router-link>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" @click="modalPicId=post.id">View
+                  </button>
+                  <router-link :to="{name:'Checkout',params:{id: post.id}}" v-if="isAuthenticated">
+                    <button type="button" class="btn btn-sm btn-outline-primary">Buy</button>
+                  </router-link>
                 </div>
                 <small class="text-muted">Price: {{ post.price }}€</small>
                 <small class="text-muted">Author: {{ post.author }}</small>
@@ -18,15 +22,15 @@
             </div>
           </div>
 
-            <section v-if="modalPicId === post.id" class="modal">
-                <section @click="modalPicId=null">
-                  <img :src="post.path" alt="bigger image" >
-                  <p id="caption">{{ post.title }}</p>
-  <!--                <font-awesome-icon icon="fa-solid fa-chevron-left" class="fa-chevron-left" @click="previousPost()"/>-->
-  <!--                <font-awesome-icon icon="fa-solid fa-chevron-right" class="fa-chevron-right" @click="nextPost()"/>-->
-                  <span class="btClose" @click="modalPicId=null">X</span>
-                </section>
+          <section v-if="modalPicId === post.id" class="modal">
+            <section @click="modalPicId=null">
+              <img :src="post.path" alt="bigger image">
+              <p id="caption">{{ post.title }}</p>
+              <!--                <font-awesome-icon icon="fa-solid fa-chevron-left" class="fa-chevron-left" @click="previousPost()"/>-->
+              <!--                <font-awesome-icon icon="fa-solid fa-chevron-right" class="fa-chevron-right" @click="nextPost()"/>-->
+              <span class="btClose" @click="modalPicId=null">X</span>
             </section>
+          </section>
 
         </div>
       </div>
@@ -41,10 +45,11 @@ import SingleImage from "@/components/SingleImage.vue";
 import {mapState} from "pinia";
 import {useAuthStore} from "@/store/auth";
 
-// noinspection JSAnnotator
+// noinspection JSAnnotator,JSUnusedGlobalSymbols
 export default {
   name: "Posts",
   components: {SingleImage},
+
   data() {
 
     return {
@@ -69,7 +74,7 @@ export default {
     nextPost() {
 
     },
-    previousPost(){
+    previousPost() {
 
     },
   },
@@ -77,11 +82,6 @@ export default {
     this.getPosts();
   }
 }
-
-
-
-
-
 </script>
 
 <style scoped>
@@ -92,7 +92,8 @@ h1 {
 .table tr:nth-child(even) {
   background-color: lightgray;
 }
-.table thead td:nth-child(even){
+
+.table thead td:nth-child(even) {
   border-left: 1px solid white;
   border-right: 1px solid white;
 }
@@ -106,6 +107,7 @@ h1 {
   background-color: black;
   color: white;
 }
+
 .table tfoot {
   text-align: center;
 }
@@ -120,12 +122,13 @@ h1 {
   height: 100%; */
   width: 100vw; /* vw - viewport width */
   height: 100vh; /* vh - viewport height */
-  background-color: rgba(0,0,0,0.75);
+  background-color: rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: center;
   align-items: center;
   /*visibility: hidden;*/
 }
+
 .modal section {
   position: relative;
   background-color: white;
@@ -133,13 +136,14 @@ h1 {
   /*height: 300px;*/
   padding: 20px;
 }
-.modal img{
+
+.modal img {
   vertical-align: top;
   width: 850px;
   height: 850px;
 }
 
-.btClose{
+.btClose {
   position: absolute;
   top: -20px;
   right: -20px;
@@ -158,17 +162,20 @@ h1 {
   cursor: pointer;
   user-select: none;
 }
-.btClose:hover{
+
+.btClose:hover {
   background-color: #f05f40;
   color: black;
   border-color: black;
 }
-.btClose:active{
+
+.btClose:active {
   box-shadow: none;
   top: -17px;
   right: -17px;
 }
-.modal .fa-chevron-left, .modal .fa-chevron-right{
+
+.modal .fa-chevron-left, .modal .fa-chevron-right {
   color: lightgrey;
   font-size: 3em;
   position: absolute;
@@ -176,27 +183,31 @@ h1 {
   transform: translate(0, -50%);
   cursor: pointer;
 }
-.fa-chevron-left:hover{
-  color: #f05f40;
-  transition: 500ms ease;
-}
-.fa-chevron-right:hover{
+
+.fa-chevron-left:hover {
   color: #f05f40;
   transition: 500ms ease;
 }
 
-.modal .fa-chevron-left{
+.fa-chevron-right:hover {
+  color: #f05f40;
+  transition: 500ms ease;
+}
+
+.modal .fa-chevron-left {
   left: 40px;
 }
-.modal .fa-chevron-right{
+
+.modal .fa-chevron-right {
   right: 40px;
 }
-#caption{
+
+#caption {
   position: absolute;
   color: white;
   left: 20px;
   bottom: 20px;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   margin: 0;
   padding: 10px 20px;
   width: calc(100% - 40px);

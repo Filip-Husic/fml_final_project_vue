@@ -25,11 +25,11 @@ export const routes = [
 
     {
         name: "Checkout",
-        path: "/checkout",
+        path: "/:id",
         component: CheckoutView,
         meta: {
             requiresAuth: true
-        }
+        },
     },
 
     {

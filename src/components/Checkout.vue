@@ -3,11 +3,11 @@
   <div class="card shadow-sm">
 
     <div class="container card-body">
-      <img src="https://via.placeholder.com/500" alt="placeholder image">
-      <h4>title</h4>
+      <img class="img-thumbnail" :src="post.path" alt="image">
+      <h4>{{ post.title }}</h4>
       <div class="d-flex justify-content-md-evenly align-items-center">
-        <p class="text-muted">Author:</p>
-        <p class="text-muted">Price:</p>
+        <p class="text-muted">Price: {{ post.price }}€</p>
+        <p class="text-muted">Author: {{ post.author }}</p>
       </div>
     </div>
   </div>
@@ -37,7 +37,8 @@
           <input class="form-control" type="month" id="cardExp" required>
         </label></p>
         <p><label class="form-label" for="cardCVV">CVV:
-          <input class="form-control" type="number" min="111" max="999" maxlength="3" id="cardCVV" v-on:input="checkCVV" required>
+          <input class="form-control" type="number" min="111" max="999" maxlength="3" id="cardCVV" v-on:input="checkCVV"
+                 required>
           <small class="text-muted">3 digit number on the back of the card</small>
         </label></p>
 
@@ -104,6 +105,8 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   name: "Checkout",
+
+
   methods: {
     checkCVV() {
       if (this.value > '999') {
@@ -111,14 +114,30 @@ export default defineComponent({
         this.value = '999';
       }
     },
+    async getPost() {
+      try {
+        let response = await fetch(`api/post/${this.$route.params.id}`);
+        this.post = await response.json();
+        console.log(this.post);
+      } catch (error) {
+        console.log("Error = ", error);
+      }
+    },
     checkout() {
-      this.$router.push({ name: 'ThankYou' })
+      // noinspection JSUnresolvedFunction
+      this.$router.push({name: 'ThankYou'})
     }
   },
   data() {
+    // noinspection JSUnresolvedVariable
     return {
-      selected: null
+      selected: null,
+      id: this.$route.params.id, //this is the id from the browser
+      post: {}
     }
+  },
+  created() {
+    this.getPost();
   }
 })
 </script>
