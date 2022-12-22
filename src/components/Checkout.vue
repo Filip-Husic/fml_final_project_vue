@@ -56,7 +56,7 @@
           <input class="form-control" type="month" id="cardExp" required>
         </label></p>
         <p><label class="form-label" for="cardCVV">CVV:
-          <input class="form-control" type="number" min="111" max="999" id="cardCVV" v-on:input="checkCVV" required>
+          <input class="form-control" type="number" min="111" max="999" maxlength="3" id="cardCVV" v-on:input="checkCVV" required>
           <small class="text-muted">3 digit number on the back of the card</small>
         </label></p>
 
@@ -125,8 +125,9 @@ export default defineComponent({
   name: "Checkout",
   methods: {
     checkCVV() {
-      if (this.value > 999) {
-        this.value = 999;
+      if (this.value > '999') {
+        console.log("cvv function")
+        this.value = '999';
       }
     },
     checkout() {
