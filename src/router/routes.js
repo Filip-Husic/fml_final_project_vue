@@ -9,6 +9,7 @@ import UserInfoView from "@/views/UserInfoView.vue";
 import UserProfileView from "@/views/UserProfileView.vue";
 import NewPostView from "@/views/NewPostView.vue";
 import CheckoutView from "@/views/CheckoutView.vue";
+import ThankYouView from "@/views/ThankYouView.vue";
 
 
 export const routes = [
@@ -21,10 +22,20 @@ export const routes = [
             requiresAuth: false
         }
     },
+
     {
         name: "Checkout",
         path: "/checkout",
         component: CheckoutView,
+        meta: {
+            requiresAuth: true
+        }
+    },
+
+    {
+        name: "ThankYou",
+        path: "/thankyou",
+        component: ThankYouView,
         meta: {
             requiresAuth: true
         }
@@ -79,7 +90,7 @@ export const routes = [
         name: "userInfo",
         path: "/user/:userId",
         component: UserInfoView,
-        props: route => ({ userId: Number(route.params.userId)}),
+        props: route => ({userId: Number(route.params.userId)}),
         meta: {
             requiresAuth: true
         }
@@ -100,7 +111,6 @@ export const routes = [
         path: "/about",
         component: AboutUsView
     },
-
 
 
     //** 404 error do not change!!!!**

@@ -86,7 +86,7 @@ export default defineComponent({
       this.authStore.register(this.registrationData)
           .then(data => {
             this.response = data;
-            this.$router.push({ name: 'Home' })
+            this.$router.push({ name: 'Login' })
           })
           .catch(error => {
             this.error = error.message

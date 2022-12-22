@@ -15,23 +15,6 @@
   </div>
   <h2>Please enter your payment information</h2>
   <form id="form" @submit.prevent="checkout">
-
-    <section id="inputField">
-      <p>
-        <label class="form-label" for="firstName">First Name:
-          <input class="form-control" type="text" id="firstName" required>
-        </label>
-      </p>
-    </section>
-
-    <section id="inputField">
-      <p>
-        <label class="form-label" for="lastName">Last Name:
-          <input class="form-control" type="text" id="lastName" required>
-        </label>
-      </p>
-    </section>
-
     <fieldset>
       <legend>Payment type:</legend>
 
