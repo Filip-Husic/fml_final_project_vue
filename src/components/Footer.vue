@@ -5,6 +5,10 @@
           <img src="src/assets/img/telekom-logo-claim.svg" alt="Telekom - Erleben, was verbindet." loading="lazy">
         </a>&copy; 2022 Lana Pavić, Matija Bevandić & Filip Husić
       </p>
+    <p>All prices are in euros €, 1 EUR = 7,53450 HRK</p>
+    <a href="https://etickikodeks.mingor.gov.hr/#!/app/home" target="_blank">
+      <img src="pics/EK-logo-desk.svg" style="width: 150px; min-width: 150px; display:inline-block; "></a>
+
   </footer>
 </template>
 

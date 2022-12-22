@@ -12,17 +12,17 @@
                   <button type="button" class="btn btn-sm btn-outline-secondary" @click="modalPicId=post.id">View</button>
                   <router-link :to="{name:'Checkout'}" v-if="isAuthenticated"><button type="button" class="btn btn-sm btn-outline-primary">Buy</button></router-link>
                 </div>
-                <small class="text-muted">Post id: {{ post.id }}</small>
+                <small class="text-muted">Price: {{ post.price }}€</small>
                 <small class="text-muted">Author placeholder</small>
               </div>
             </div>
           </div>
-              <section v-if="modalPicId === post.id" class="modal">
+              <section v-if="modalPicId === post.id" class="">
               <section>
                 <img :src="post.path" alt="bigger image">
-                <p id="caption">Post caption placeholder</p>
-                <font-awesome-icon icon="fa-solid fa-chevron-left" class="fa-chevron-left" @click="previousPost()"/>
-                <font-awesome-icon icon="fa-solid fa-chevron-right" class="fa-chevron-right" @click="nextPost()"/>
+                <p id="caption">{{ post.title }}</p>
+<!--                <font-awesome-icon icon="fa-solid fa-chevron-left" class="fa-chevron-left" @click="previousPost()"/>-->
+<!--                <font-awesome-icon icon="fa-solid fa-chevron-right" class="fa-chevron-right" @click="nextPost()"/>-->
                 <span class="btClose" @click="modalPicId=null">X</span>
               </section>
             </section>
@@ -108,28 +108,7 @@ h1 {
 .table tfoot {
   text-align: center;
 }
-.modal{
-  position: fixed;
-  top: 0;
-  left: 0;
-  /* width: 100%;
-  height: 100%; */
-  width: 100vw; /* vw - viewport width */
-  height: 100vh; /* vh - viewport height */
-  background-color: rgba(0,0,0,0.75);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
-}
-.modal section{
-  position: relative;
-  background-color: #f05f40;
-  /* width: 1024px;
-  height: 768px; */
-  padding: 10px
-}
-.modal img {
+.modal img{
   vertical-align: top;
 }
 
