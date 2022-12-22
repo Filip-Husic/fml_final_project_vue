@@ -4,12 +4,12 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col" v-for="post of posts">
           <div class="card shadow-sm">
-            <img :src="post.path" alt="picture thumbnail">
+            <img :src="post.path" alt="picture thumbnail" @click="modalPicId=post.id">
             <div class="card-body">
               <h4>{{post.title}}</h4>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" @click="modalPicId=post.id">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary mx-1" @click="modalPicId=post.id">View</button>
                   <router-link :to="{name:'Checkout'}" v-if="isAuthenticated"><button type="button" class="btn btn-sm btn-outline-primary">Buy</button></router-link>
                 </div>
                 <small class="text-muted">Price: {{ post.price }}€</small>
@@ -17,15 +17,17 @@
               </div>
             </div>
           </div>
-              <section v-if="modalPicId === post.id" class="">
-              <section>
-                <img :src="post.path" alt="bigger image">
-                <p id="caption">{{ post.title }}</p>
-<!--                <font-awesome-icon icon="fa-solid fa-chevron-left" class="fa-chevron-left" @click="previousPost()"/>-->
-<!--                <font-awesome-icon icon="fa-solid fa-chevron-right" class="fa-chevron-right" @click="nextPost()"/>-->
-                <span class="btClose" @click="modalPicId=null">X</span>
-              </section>
+
+            <section v-if="modalPicId === post.id" class="modal">
+                <section @click="modalPicId=null">
+                  <img :src="post.path" alt="bigger image" >
+                  <p id="caption">{{ post.title }}</p>
+  <!--                <font-awesome-icon icon="fa-solid fa-chevron-left" class="fa-chevron-left" @click="previousPost()"/>-->
+  <!--                <font-awesome-icon icon="fa-solid fa-chevron-right" class="fa-chevron-right" @click="nextPost()"/>-->
+                  <span class="btClose" @click="modalPicId=null">X</span>
+                </section>
             </section>
+
         </div>
       </div>
     </div>
@@ -107,8 +109,34 @@ h1 {
 .table tfoot {
   text-align: center;
 }
+
+
+.modal {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* width: 100%;
+  height: 100%; */
+  width: 100vw; /* vw - viewport width */
+  height: 100vh; /* vh - viewport height */
+  background-color: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*visibility: hidden;*/
+}
+.modal section {
+  position: relative;
+  background-color: white;
+  /*width: 300px;*/
+  /*height: 300px;*/
+  padding: 20px;
+}
 .modal img{
   vertical-align: top;
+  width: 850px;
+  height: 850px;
 }
 
 .btClose{
