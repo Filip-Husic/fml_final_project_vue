@@ -2,7 +2,6 @@
 import { defineComponent } from "vue";
 import { mapStores } from "pinia";
 import { useAuthStore } from "@/store/auth";
-import ErrorMessage from "@/components/ErrorMessage.vue";
 
 export default defineComponent({
   name: "LoginForm",
@@ -19,6 +18,7 @@ export default defineComponent({
   },
   methods: {
     login() {
+      // noinspection JSUnusedLocalSymbols,JSUnresolvedFunction
       this.authStore.login(this.user)
           .then(() => this.$router.push({ name: 'Home' }))
           .catch(error => this.error = { message: "Login failed." })
@@ -36,7 +36,7 @@ export default defineComponent({
 <template>
   <div class="container">
     <h1>Login</h1>
-    <form id="form" @submit.prevent="login" v-if="!authStore.isAuthenticated">
+    <form id="form" @submit.prevent="login">
       <section id="inputField">
         <p><label class="form-label" for="username">
           <span>Username </span>
@@ -59,7 +59,7 @@ export default defineComponent({
     </form>
   </div>
 
-  <ErrorMessage v-if="error?.message" :error="error"/>
+  <div v-if="error?.message">{{ this.error.message }}</div>
 </template>
 
 <style scoped>
@@ -69,14 +69,6 @@ export default defineComponent({
   width: 400px;
   padding: 20px;
   margin-top: 20px;
-}
-#errorList {
-  background-color: rgb(0, 0, 0);
-  padding: 2px;
-  border: 1px solid black;
-  float: bottom;
-  margin-left: 20px;
-  color: rgb(255, 0, 0);
 }
 
 #inputField {
@@ -112,9 +104,5 @@ export default defineComponent({
   background-color: lightgrey;
   color: #f05f40;
   transition: 300ms ease-out;
-}
-
-.test{
-  margin-top: 20px;
 }
 </style>

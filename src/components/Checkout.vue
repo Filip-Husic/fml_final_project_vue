@@ -114,7 +114,7 @@ export default defineComponent({
       }
     },
     checkout() {
-
+      this.$router.push({ name: 'ThankYou' })
     }
   },
   data() {
