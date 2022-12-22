@@ -6,7 +6,7 @@
 
 
     <article class="about left">
-      <img src="images/lana.webp" class="lanaimg"/>
+      <img src="images/lana.webp" class="lanaImg" alt="letter L decorated with flowers"/>
 <!--      <img src="images/matija.jpg" class="lanaimg"/>-->
       <quote>Works in HT from 22.01.2020 <br>
         She started as an operator in the Call Center in Zagreb in the Department for Sales to Small Business Users.<br>
@@ -21,7 +21,7 @@
     <div class="clear"/>
 
     <article class="about right">
-      <img src="images/matija.jpg" class="matijaimg"/>
+      <img src="images/matija.jpg" class="matijaImg" alt="gold letter M"/>
       <quote>Last position before applying for Career Shift: Customer Care Agent of the Technical Service of HT. <br>
         Likes to constantly improve his skills and learn new things.<br>
         Hobbies: walking the dogs, bothering the cat, gaming and technology in general.
@@ -33,7 +33,7 @@
     <div class="clear"/>
 
     <article class="about left">
-      <img src="images/filip.jpg" class="filipimg"/>
+      <img src="images/filip.jpg" class="filipImg" alt="white letter F"/>
       <!--      <img src="images/matija.jpg" class="lanaimg"/>-->
       <quote> Works in HT from 2020, last position before applying to the Career Shifter program -> Superior call centre agent for business users.
         <br>
@@ -58,7 +58,7 @@
 
     <a href="https://github.com/Filip-Husic/fml_final_project_spring" target="_blank">
       <button class="gumb">
-        Frontend part of this project on
+        Backend part of this project on
         <font-awesome-icon icon="fa-brands fa-github" class="gitHub"/>
       </button>
     </a>
@@ -153,7 +153,7 @@ export default {
     padding: 10px;
     float: left;
     margin-left: 140px;
-    box-shadow: 0px 2px 10px black; /* Adds shadows around the button*/
+    box-shadow: 0 2px 10px black; /* Adds shadows around the button*/
     cursor: pointer;
     border: none;
     color: lightgrey;

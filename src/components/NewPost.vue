@@ -1,31 +1,41 @@
 <template>
-<h1>Add new post</h1>
+  <h1>Add new post</h1>
   <form id="form" @submit.prevent="addPost" v-if="!response">
-    <section id="inputField"><p>
+
+    <section id="title"><p>
       <label class="form-label" for="title">Title:
         <input class="form-control" type="text" id="title" autocomplete="title" v-model="postData.title" required>
       </label>
     </p>
     </section>
-    <section id="inputField"><p>
+
+    <section id="price"><p>
       <label class="form-label" for="price">Price in euros:
         <input class="form-control" type="number" id="price" autocomplete="price" v-model="postData.price" required>
       </label>
     </p>
     </section>
-    <section id="inputField"><p>
-      <label class="form-label" for="image">Attach image:
-        <input class="form-control" type="file" id="image" @change="uploadFile" ref="file" required>
+
+
+    <section id="image">
+      <div>
+        <label class="form-label" for="image">Attach image:
+          <input class="form-control" type="file" id="image" ref="file" required>
       </label>
-    </p>
+      </div>
+<!--      Preview to be added later   -->
+<!--      <div class="img-thumbnail">-->
+<!--        <img src="{{postData.image}}"/>-->
+<!--        <button type="button" @click="removeImage">Remove image</button>-->
+<!--      </div>-->
     </section>
 
-    <p class="test">
+    <section id="buttons">
       <button class="butreg" type="submit" :disabled="!valid">Submit</button>
       <button class="buthomepag">
         <router-link class="nav-link active" to="/">Back to homepage</router-link>
       </button>
-    </p>
+    </section>
     <ErrorMessage v-if="error?.message" :error="error"/>
   </form>
 </template>
@@ -35,24 +45,27 @@ import {defineComponent} from "vue";
 import {mapStores} from "pinia";
 import {useAuthStore} from "@/store/auth";
 import ErrorMessage from "@/components/ErrorMessage.vue";
-import {integer} from "vee-validate/dist/rules.esm";
+import {image} from "vee-validate/dist/rules.esm";
 
 
-export default defineComponent ({
+export default defineComponent({
   name: "NewPost",
   components: {ErrorMessage},
   data() {
     return {
       postData: {
         title: '',
-        price: integer,
-        images: null
+        price: 0,
+        image: ''
       },
       response: null,
       error: null
     }
   },
   computed: {
+    image() {
+      return image
+    },
     ...mapStores(useAuthStore),
     valid() {
       const titleValid = this.postData.title.length > 0;
@@ -63,43 +76,38 @@ export default defineComponent ({
     },
   },
   methods: {
-    uploadFile() {
-    //   this.images = this.$refs.file.files[0];
-    },
-    addPost() {
-    //   const formData = new FormData();
-    //   formData.append('file', this.title);
-    //   formData.append('file', this.price);
-    //   formData.append('file', this.images);
-    //
-    //   const headers = { 'Content-Type': 'multipart/form-data' };
-    //
-    //   axios.post('api/post' + this.user.id, formData, { headers }).then((res) => {
-    //     res.data.files; // binary representation of the file
-    //     res.status; // HTTP status
-    //     console.log("file uploaded")
-    //   });
-      // this.error = null;
-      // this.authStore.addPost(this.postData)
-      //     .then(data => {
-      //       this.response = data;
-      //       this.$router.push({ name: 'Home' })
-      //       alert("You've added a new post!")
-      //     })
-      //     .catch(error => {
-      //       this.error = error.message
-      //     })
+    addPost(){
+
     }
+
+
+    //     Preview to be added later
+    // onUploadChange(e) {
+    //   let image = e.target.postData.image || e.dataTransfer.postData.image;
+    //   if (!image.length)
+    //     return;
+    //   this.createImage(image);
+    // },
+    // createImage(file) {
+    //   let image = new Image();
+    //   let reader = new FileReader();
+    //   let vm = this;
+    //
+    //   reader.onload = (e) => {
+    //     vm.image = e.target.result;
+    //   };
+    //   reader.readAsDataURL(file);
+    // },
+    // removeImage: function (e) {
+    //   this.image = '';
+    // }
   }
 })
 </script>
 
 <style scoped>
 
-#inputField {
-
-}
-.butreg{
+.butreg {
   width: 120px;
   border-radius: 10px;
   border-width: 0;
@@ -109,12 +117,14 @@ export default defineComponent ({
   padding: 1px;
   margin: auto;
 }
-.butreg:hover{
+
+.butreg:hover {
   background-color: lightgrey;
   color: #f05f40;
   transition: 300ms ease-out;
 }
-.buthomepag{
+
+.buthomepag {
   width: 150px;
   border-radius: 10px;
   border-width: 0;
@@ -125,13 +135,10 @@ export default defineComponent ({
   margin-left: 20px;
 
 }
-.buthomepag:hover{
+
+.buthomepag:hover {
   background-color: lightgrey;
   color: #f05f40;
   transition: 300ms ease-out;
-}
-
-.test{
-  margin-top: 20px;
 }
 </style>
