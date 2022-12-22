@@ -1,15 +1,13 @@
 <template>
   <h1>Checkout</h1>
-  <p>Here's some info about the image you'd like to buy</p>
   <div class="card shadow-sm">
 
     <div class="container card-body">
       <img src="https://via.placeholder.com/500" alt="placeholder image">
       <h4>title</h4>
       <div class="d-flex justify-content-md-evenly align-items-center">
-        <small class="text-muted">Price:</small>
-        <small class="text-muted">Post id:</small>
-        <small class="text-muted">Author placeholder</small>
+        <p class="text-muted">Author:</p>
+        <p class="text-muted">Price:</p>
       </div>
     </div>
   </div>

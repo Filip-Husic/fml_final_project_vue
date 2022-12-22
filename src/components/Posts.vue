@@ -13,7 +13,7 @@
                   <router-link :to="{name:'Checkout'}" v-if="isAuthenticated"><button type="button" class="btn btn-sm btn-outline-primary">Buy</button></router-link>
                 </div>
                 <small class="text-muted">Price: {{ post.price }}€</small>
-                <small class="text-muted">Author placeholder</small>
+                <small class="text-muted">Author: {{ post.author }}</small>
               </div>
             </div>
           </div>
@@ -39,6 +39,7 @@ import SingleImage from "@/components/SingleImage.vue";
 import {mapState} from "pinia";
 import {useAuthStore} from "@/store/auth";
 
+// noinspection JSAnnotator
 export default {
   name: "Posts",
   components: {SingleImage},
@@ -56,9 +57,7 @@ export default {
   methods: {
     async getPosts() {
       try {
-        let pageUrl = "api/post/"
-
-        let response = await fetch(pageUrl);
+        let response = await fetch("api/post/");
         this.posts = await response.json();
       } catch (error) {
         console.log("Error = ", error);
