@@ -9,7 +9,7 @@
               <h4>{{post.title}}</h4>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" @click="modalPicId=post.id">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary mx-1" @click="modalPicId=post.id">View</button>
                   <router-link :to="{name:'Checkout'}" v-if="isAuthenticated"><button type="button" class="btn btn-sm btn-outline-primary">Buy</button></router-link>
                 </div>
                 <small class="text-muted">Price: {{ post.price }}€</small>
