@@ -40,7 +40,7 @@
         </button>
       </p>
     </form>
-    <ErrorMessage v-if="error?.message" :error="error"/>
+    <div class="errorMsg" v-if="error?.message">{{ this.error.message }}</div>
   </div>
 </template>
 
@@ -80,6 +80,7 @@ export default defineComponent({
     },
   },
   methods: {
+    authStore: undefined,
     register() {
       this.error = null;
       this.authStore.register(this.registrationData)
@@ -103,7 +104,7 @@ export default defineComponent({
   padding: 20px;
   margin-top: 20px;
 }
-#errorList {
+.errorMsg {
   background-color: rgb(0, 0, 0);
   padding: 2px;
   border: 1px solid black;

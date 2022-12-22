@@ -1,4 +1,4 @@
-import { defineStore } from "pinia";
+import {defineStore} from "pinia";
 
 const LOCAL_STORAGE_KEY_NAME = "lastLogin"
 
@@ -27,9 +27,11 @@ const handleResponse = async (response, store) => {
     }
 }
 
+// noinspection JSUnusedGlobalSymbols
 export const useAuthStore = defineStore("auth", {
     state: () => ({
         isAuthenticated: localStorage.getItem(LOCAL_STORAGE_KEY_NAME) !== null,
+        user: null
     }),
     actions: {
         async check() {
@@ -46,7 +48,7 @@ export const useAuthStore = defineStore("auth", {
                 body: JSON.stringify(user)
             });
 
-            await handleResponse(response, this);
+            this.user = await handleResponse(response, this);
         },
         async login(user) {
             const response = await fetch('/api/auth/login', {
@@ -56,13 +58,15 @@ export const useAuthStore = defineStore("auth", {
                 },
                 body: JSON.stringify(user)
             });
-            await handleResponse(response, this);
+            this.user = await handleResponse(response, this);
         },
         async logout() {
+            // noinspection JSUnusedLocalSymbols
             const response = await fetch('/api/auth/logout', {
                 method: 'POST'
             })
             this.isAuthenticated = false;
+            this.user = null;
             persistState(this.isAuthenticated);
         },
     }

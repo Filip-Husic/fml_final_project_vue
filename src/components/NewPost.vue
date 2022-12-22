@@ -1,4 +1,5 @@
 <template>
+
   <h1>Add new post</h1>
   <form id="form" @submit.prevent="addPost" v-if="!response">
 
@@ -20,14 +21,14 @@
     <section id="image">
       <div>
         <label class="form-label" for="image">Attach image:
-          <input class="form-control" type="file" id="image" ref="file" required>
-      </label>
+          <input class="form-control" type="file" id="image" @change="handleFileUpload" ref="file">
+        </label>
       </div>
-<!--      Preview to be added later   -->
-<!--      <div class="img-thumbnail">-->
-<!--        <img src="{{postData.image}}"/>-->
-<!--        <button type="button" @click="removeImage">Remove image</button>-->
-<!--      </div>-->
+      <!--      Preview to be added later   -->
+      <!--      <div class="img-thumbnail">-->
+      <!--        <img src="{{postData.image}}"/>-->
+      <!--        <button type="button" @click="removeImage">Remove image</button>-->
+      <!--      </div>-->
     </section>
 
     <section id="buttons">
@@ -46,6 +47,7 @@ import {mapStores} from "pinia";
 import {useAuthStore} from "@/store/auth";
 import ErrorMessage from "@/components/ErrorMessage.vue";
 import {image} from "vee-validate/dist/rules.esm";
+import {fetch} from "whatwg-fetch";
 
 
 export default defineComponent({
@@ -56,7 +58,7 @@ export default defineComponent({
       postData: {
         title: '',
         price: 0,
-        image: ''
+        image: null
       },
       response: null,
       error: null
@@ -76,8 +78,34 @@ export default defineComponent({
     },
   },
   methods: {
-    addPost(){
+    async addPost() {
 
+      fetch('/api/post/' + this.authStore.user.id, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          title: this.postData.title,
+          price: this.postData.price,
+        })
+      })
+          .then(response => response.json())
+          .then(data => {
+            const formData = new FormData();
+            formData.append('file',this.postData.image)
+            fetch(`api/post/${data.id}/picture`, {
+              method: 'POST',
+              body: formData
+            })
+          })
+          .catch(error => {
+            console.error('Error:', error)
+          })
+          .then(() => this.$router.push({ name: 'Home' }))
+    },
+    handleFileUpload(event){
+      this.postData.image = event.target.files[0]
     }
 
 

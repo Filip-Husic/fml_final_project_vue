@@ -4,13 +4,12 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col" v-for="post of posts">
           <div class="card shadow-sm">
-            <img src="https://via.placeholder.com/150" alt="placeholder image">
-
+            <img :src="post.path" alt="picture thumbnail">
             <div class="card-body">
               <h4>{{post.title}}</h4>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" @click="showImg()">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" @click="modalPicId=post.id">View</button>
                   <router-link :to="{name:'Checkout'}" v-if="isAuthenticated"><button type="button" class="btn btn-sm btn-outline-primary">Buy</button></router-link>
                 </div>
                 <small class="text-muted">Post id: {{ post.id }}</small>
@@ -18,19 +17,19 @@
               </div>
             </div>
           </div>
+              <section v-if="modalPicId === post.id" class="modal">
+              <section>
+                <img :src="post.path" alt="bigger image">
+                <p id="caption">Post caption placeholder</p>
+                <font-awesome-icon icon="fa-solid fa-chevron-left" class="fa-chevron-left" @click="previousPost()"/>
+                <font-awesome-icon icon="fa-solid fa-chevron-right" class="fa-chevron-right" @click="nextPost()"/>
+                <span class="btClose" @click="modalPicId=null">X</span>
+              </section>
+            </section>
         </div>
       </div>
     </div>
   </div>
-  <section class="modal">
-    <section>
-      <img src="https://via.placeholder.com/600" alt="placeholder image">
-      <p id="caption">Post caption placeholder</p>
-      <font-awesome-icon icon="fa-solid fa-chevron-left" class="fa-chevron-left" @click="previousPost()"/>
-      <font-awesome-icon icon="fa-solid fa-chevron-right" class="fa-chevron-right" @click="nextPost()"/>
-      <span class="btClose" @click="closeImg()">X</span>
-    </section>
-  </section>
 </template>
 
 <script>
@@ -47,7 +46,8 @@ export default {
 
     return {
       posts: [],
-      expanded: false
+      expanded: false,
+      modalPicId: null
     };
   },
   computed: {
@@ -56,26 +56,15 @@ export default {
   methods: {
     async getPosts() {
       try {
-        let pageUrl = "https://jsonplaceholder.typicode.com"
+        let pageUrl = "api/post/"
 
-        let response = await fetch(pageUrl + "/albums/1/photos");
+        let response = await fetch(pageUrl);
         this.posts = await response.json();
-        console.log(this.posts);
       } catch (error) {
         console.log("Error = ", error);
       }
     },
-    showImg(){
-      document
-          .querySelector(".modal")
-          .style.visibility="visible";
-      console.log("I am showing an image")
-    },
-    closeImg(){
-      document
-          .querySelector(".modal")
-          .style.visibility="hidden";
-    },
+
     nextPost() {
 
     },
