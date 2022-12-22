@@ -40,7 +40,7 @@
         </button>
       </p>
     </form>
-    <div class="errorMsg" v-if="error?.message">{{ this.error.message }}</div>
+    <div v-if="error1?.message">{{ this.error1.message }}</div>
   </div>
 </template>
 
@@ -48,11 +48,10 @@
 import { defineComponent } from "vue";
 import { mapStores } from "pinia";
 import { useAuthStore } from "@/store/auth";
-import ErrorMessage from "@/components/ErrorMessage.vue";
+
 
 export default defineComponent({
   name: "RegistrationForm",
-  components: { ErrorMessage },
   data() {
     return {
       registrationData: {
@@ -63,7 +62,9 @@ export default defineComponent({
         password: ''
       },
       response: null,
-      error: null
+      error1: {
+        message: ''
+      }
     }
   },
   computed: {
@@ -86,6 +87,7 @@ export default defineComponent({
       this.authStore.register(this.registrationData)
           .then(data => {
             this.response = data;
+            // noinspection JSUnresolvedFunction
             this.$router.push({ name: 'Login' })
           })
           .catch(error => {
@@ -103,14 +105,6 @@ export default defineComponent({
   width: 400px;
   padding: 20px;
   margin-top: 20px;
-}
-.errorMsg {
-  background-color: rgb(0, 0, 0);
-  padding: 2px;
-  border: 1px solid black;
-  float: bottom;
-  margin-left: 20px;
-  color: rgb(255, 0, 0);
 }
 
 #inputField {

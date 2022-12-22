@@ -37,7 +37,7 @@
         <router-link class="nav-link active" to="/">Back to homepage</router-link>
       </button>
     </section>
-    <ErrorMessage v-if="error?.message" :error="error"/>
+    <div v-if="error?.message">{{ this.error.message }}</div>
   </form>
 </template>
 
@@ -45,14 +45,12 @@
 import {defineComponent} from "vue";
 import {mapStores} from "pinia";
 import {useAuthStore} from "@/store/auth";
-import ErrorMessage from "@/components/ErrorMessage.vue";
 import {image} from "vee-validate/dist/rules.esm";
 import {fetch} from "whatwg-fetch";
 
 
 export default defineComponent({
   name: "NewPost",
-  components: {ErrorMessage},
   data() {
     return {
       postData: {
@@ -80,6 +78,7 @@ export default defineComponent({
   methods: {
     async addPost() {
 
+      // noinspection JSUnresolvedFunction
       fetch('/api/post/' + this.authStore.user.id, {
         method: 'POST',
         headers: {

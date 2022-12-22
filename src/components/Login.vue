@@ -5,14 +5,15 @@ import { useAuthStore } from "@/store/auth";
 
 export default defineComponent({
   name: "LoginForm",
-  components: { ErrorMessage },
   data() {
     return {
       user: {
         username: '',
         password: ''
       },
-      error: null,
+      error: {
+        message: ''
+      },
       isLoggedIn: false,
     }
   },

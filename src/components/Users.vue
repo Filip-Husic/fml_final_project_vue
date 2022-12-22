@@ -4,13 +4,12 @@
     <thead class="table-dark">
     <th>Username</th>
     <th>Email</th>
-    <th>Website</th>
     </thead>
     <tr v-for="user of users" :key="user.id">
-      <td>{{user.id}}</td>
       <td>{{user.username}}</td>
       <td>{{user.email}}</td>
-      <td><router-link :to="{ name: 'userInfo', params: { userId: user.id}}">ℹ️</router-link></td>
+      <td><router-link :to="{ name: 'EditUser', params: { userId: user.id}}">Edit</router-link></td>
+      <td><router-link :to="{ name: 'UsersView', params: { userId: user.id}}">Delete</router-link></td>
     </tr>
     <tfoot>
     <tr>
@@ -31,7 +30,7 @@ export default {
     async getUsers() {
       try {
 
-        let response = await fetch("https://jsonplaceholder.typicode.com/users");
+        let response = await fetch("api/user");
         this.users = await response.json();
         console.log(this.users);
       } catch (error) {
