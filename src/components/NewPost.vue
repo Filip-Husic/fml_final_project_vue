@@ -11,7 +11,7 @@
     </section>
 
     <section id="price"><p>
-      <label class="form-label" for="price">Price in euros:
+      <label class="form-label" for="price">Price in EUR €:
         <input class="form-control" type="number" id="price" autocomplete="price" v-model="postData.price" required>
       </label>
     </p>
