@@ -8,7 +8,7 @@
     <article class="about left">
       <img src="images/lana.webp" class="lanaImg" alt="letter L decorated with flowers"/>
 <!--      <img src="images/matija.jpg" class="lanaimg"/>-->
-      <quote>Works in HT from 22.01.2020 <br>
+      <quote>
         She started as an operator in the Call Center in Zagreb in the Department for Sales to Small Business Users.<br>
         The last position before applying to the Career Shifter program -> Specialist for Premium support for business users.<br>
         Plays music in her free time, is an introverted extrovert and a big Harry Potter fan.<br>
@@ -35,7 +35,7 @@
     <article class="about left">
       <img src="images/filip.jpg" class="filipImg" alt="white letter F"/>
       <!--      <img src="images/matija.jpg" class="lanaimg"/>-->
-      <quote> Works in HT from 2020, last position before applying to the Career Shifter program -> Superior call centre agent for business users.
+      <quote>Last position before applying for Career Shift: Superior call centre agent for business users.
         <br>
         Interested in finding new ways to solve problems, great in a team. <br>
         Loves everything related to computers and technology. <br>

@@ -17,6 +17,7 @@
     <h1 v-else>WELCOME BACK TO FML<font-awesome-icon icon="fa-solid fa-camera" id="camera"/></h1>
     <hr>
     <p>We are aspiring to create a community where you can freely express yourself, upload your photographic creations and explore others'.
+      <br>
       Find your inspiration, express your ideas and make a profit along the way.
       We are excited to see the world through your lens.
     </p>
