@@ -4,12 +4,13 @@
     <thead class="table-dark">
     <th>Username</th>
     <th>Email</th>
+    <th colspan="2">Actions</th>
     </thead>
-    <tr v-for="user of users" :key="user.id">
+    <tr v-for="user of users">
       <td>{{user.username}}</td>
       <td>{{user.email}}</td>
-      <td><router-link :to="{ name: 'EditUser', params: { userId: user.id}}">Edit</router-link></td>
-      <td><router-link :to="{ name: 'UsersView', params: { userId: user.id}}">Delete</router-link></td>
+      <td><router-link :to="{ name: 'UserInfo', params: { userId: user.id}}"><button type="button" class="btn btn-outline-primary">Edit</button></router-link></td>
+      <td><button type="button" class="btn btn-outline-danger">Delete</button></td>
     </tr>
     <tfoot>
     <tr>
@@ -32,7 +33,6 @@ export default {
 
         let response = await fetch("api/user");
         this.users = await response.json();
-        console.log(this.users);
       } catch (error) {
         console.log("Error = ", error);
       }

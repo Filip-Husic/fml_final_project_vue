@@ -13,7 +13,8 @@
 <template>
 
   <article>
-    <h1>WELCOME TO FML <font-awesome-icon icon="fa-solid fa-camera" id="camera"/></h1>
+    <h1 v-if="!isAuthenticated">WELCOME TO FML dear guest, register/login now! <font-awesome-icon icon="fa-solid fa-camera" id="camera"/></h1>
+    <h1 v-else>WELCOME BACK TO FML<font-awesome-icon icon="fa-solid fa-camera" id="camera"/></h1>
     <hr>
     <p>We are aspiring to create a community where you can freely express yourself, upload your photographic creations and explore others'.
       Find your inspiration, express your ideas and make a profit along the way.
@@ -23,7 +24,7 @@
       <button class="gumb">FIND OUT MORE</button>
     </router-link>
     <router-link :to="{name:'NewPost'}">
-      <button v-if="isAuthenticated" class="gumb">POST SOMETHING</button>
+      <button v-if="isAuthenticated" class="gumb">ADD A NEW POST</button>
     </router-link>
   </article>
 
@@ -55,7 +56,6 @@
     margin: auto;
     text-decoration: none;
     border: none;
-    margin: 5px;
   }
   .gumb:hover{
     transition: ease .5s;

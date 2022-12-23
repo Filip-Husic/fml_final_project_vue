@@ -87,7 +87,7 @@ export const routes = [
     },
 
     {
-        name: "userInfo",
+        name: "UserInfo",
         path: "/user/:userId",
         component: UserInfoView,
         props: route => ({userId: Number(route.params.userId)}),

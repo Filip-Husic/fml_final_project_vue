@@ -118,7 +118,6 @@ export default defineComponent({
       try {
         let response = await fetch(`api/post/${this.$route.params.id}`);
         this.post = await response.json();
-        console.log(this.post);
       } catch (error) {
         console.log("Error = ", error);
       }
@@ -143,5 +142,8 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
+.img-thumbnail {
+  vertical-align: top;
+  width: 850px;
+}
 </style>
